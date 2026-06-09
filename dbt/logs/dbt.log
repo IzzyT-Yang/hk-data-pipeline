@@ -1,0 +1,1340 @@
+[0m23:09:02.550601 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108c55d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109df3750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109df39d0>]}
+
+
+============================== 23:09:02.554632 | f8a09224-61ff-487a-bbf2-6dfaa4254804 ==============================
+[0m23:09:02.554632 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:09:02.554851 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'debug': 'False', 'invocation_command': 'dbt debug --profiles-dir .', 'log_format': 'default', 'quiet': 'False', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs', 'partial_parse': 'True', 'use_colors': 'True', 'introspect': 'True', 'version_check': 'True', 'warn_error': 'None', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'target_path': 'None', 'fail_fast': 'False', 'printer_width': '80', 'profiles_dir': '.', 'static_parser': 'True', 'empty': 'None', 'write_json': 'True'}
+[0m23:09:02.579671 [info ] [MainThread]: dbt version: 1.11.11
+[0m23:09:02.579821 [info ] [MainThread]: python version: 3.13.13
+[0m23:09:02.579904 [info ] [MainThread]: python path: /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/.venv/bin/python3
+[0m23:09:02.579979 [info ] [MainThread]: os info: macOS-26.4.1-arm64-arm-64bit-Mach-O
+[0m23:09:04.464281 [info ] [MainThread]: Using profiles dir at .
+[0m23:09:04.465379 [info ] [MainThread]: Using profiles.yml file at ./profiles.yml
+[0m23:09:04.465493 [info ] [MainThread]: Using dbt_project.yml file at /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/dbt_project.yml
+[0m23:09:04.465579 [info ] [MainThread]: adapter type: bigquery
+[0m23:09:04.465655 [info ] [MainThread]: adapter version: 1.11.1
+[0m23:09:04.496625 [info ] [MainThread]: Configuration:
+[0m23:09:04.497706 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m23:09:04.497814 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m23:09:04.497898 [info ] [MainThread]: Required dependencies:
+[0m23:09:04.498020 [debug] [MainThread]: Executing "git --help"
+[0m23:09:04.508802 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m23:09:04.509247 [debug] [MainThread]: STDERR: "b''"
+[0m23:09:04.509391 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m23:09:04.509498 [info ] [MainThread]: Connection:
+[0m23:09:04.509734 [info ] [MainThread]:   method: oauth
+[0m23:09:04.509852 [info ] [MainThread]:   database: kestra-sandbox-486905
+[0m23:09:04.509953 [info ] [MainThread]:   execution_project: kestra-sandbox-486905
+[0m23:09:04.510049 [info ] [MainThread]:   schema: hk_data_pipeline
+[0m23:09:04.510139 [info ] [MainThread]:   location: asia-east2
+[0m23:09:04.510226 [info ] [MainThread]:   priority: None
+[0m23:09:04.510313 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m23:09:04.510399 [info ] [MainThread]:   impersonate_service_account: None
+[0m23:09:04.510486 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m23:09:04.510573 [info ] [MainThread]:   job_retries: 1
+[0m23:09:04.510661 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m23:09:04.510748 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m23:09:04.510833 [info ] [MainThread]:   timeout_seconds: 300
+[0m23:09:04.510910 [info ] [MainThread]:   client_id: None
+[0m23:09:04.510987 [info ] [MainThread]:   token_uri: None
+[0m23:09:04.511067 [info ] [MainThread]:   compute_region: None
+[0m23:09:04.511145 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m23:09:04.511224 [info ] [MainThread]:   gcs_bucket: None
+[0m23:09:04.511303 [info ] [MainThread]:   dataproc_batch: None
+[0m23:09:04.511576 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:09:04.576062 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m23:09:04.581328 [debug] [MainThread]: On debug: select 1 as id
+[0m23:09:04.581535 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:09:05.964273 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:1c0cdf0b-99b8-408d-80d3-80f0982a64d4&page=queryresults
+[0m23:09:06.385504 [debug] [MainThread]: SQL status: OK in 0.420 seconds
+[0m23:09:07.016915 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m23:09:07.017520 [info ] [MainThread]: [32mAll checks passed![0m
+[0m23:09:07.022386 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 4.5002856, "process_in_blocks": "0", "process_kernel_time": 0.252224, "process_mem_max_rss": "230588416", "process_out_blocks": "0", "process_user_time": 0.893587}
+[0m23:09:07.022925 [debug] [MainThread]: Command `dbt debug` succeeded at 23:09:07.022836 after 4.50 seconds
+[0m23:09:07.023216 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m23:09:07.023537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118ec2d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118f4bbf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x118f006b0>]}
+[0m23:09:07.023921 [debug] [MainThread]: Flushing usage events
+[0m23:09:07.258530 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:09:13.685204 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c4cdd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d69b9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d69b890>]}
+
+
+============================== 23:09:13.686933 | 9a24ee2a-928b-4d3f-9175-3e2c214b754a ==============================
+[0m23:09:13.686933 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:09:13.687150 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'warn_error': 'None', 'quiet': 'False', 'indirect_selection': 'eager', 'empty': 'False', 'partial_parse': 'True', 'target_path': 'None', 'no_print': 'None', 'use_experimental_parser': 'False', 'version_check': 'True', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'printer_width': '80', 'use_colors': 'True', 'static_parser': 'True', 'profiles_dir': '.', 'invocation_command': 'dbt run --profiles-dir .', 'fail_fast': 'False', 'write_json': 'True', 'introspect': 'True', 'debug': 'False'}
+[0m23:09:14.023910 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c9a8770>]}
+[0m23:09:14.042194 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c4cbbd0>]}
+[0m23:09:14.042458 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:09:14.094523 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m23:09:14.094851 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m23:09:14.094980 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11c533750>]}
+[0m23:09:14.472309 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d4e26c0>]}
+[0m23:09:14.497803 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:09:14.498786 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:09:14.511253 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ccfda90>]}
+[0m23:09:14.511419 [info ] [MainThread]: Found 4 models, 2 sources, 549 macros
+[0m23:09:14.511516 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11cab3380>]}
+[0m23:09:14.512142 [info ] [MainThread]: 
+[0m23:09:14.512255 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m23:09:14.512333 [info ] [MainThread]: 
+[0m23:09:14.512486 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m23:09:14.513747 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905'
+[0m23:09:14.513933 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905'
+[0m23:09:14.514042 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:09:14.514142 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:09:17.055964 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905, now create_kestra-sandbox-486905_hk_data_pipeline_staging)
+[0m23:09:17.056345 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905, now create_kestra-sandbox-486905_hk_data_pipeline_mart)
+[0m23:09:17.056615 [debug] [ThreadPool]: Creating schema "database: "kestra-sandbox-486905"
+schema: "hk_data_pipeline_staging"
+"
+[0m23:09:17.056813 [debug] [ThreadPool]: Creating schema "database: "kestra-sandbox-486905"
+schema: "hk_data_pipeline_mart"
+"
+[0m23:09:17.061594 [debug] [ThreadPool]: On create_kestra-sandbox-486905_hk_data_pipeline_staging: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "connection_name": "create_kestra-sandbox-486905_hk_data_pipeline_staging"} */
+create schema if not exists `kestra-sandbox-486905`.`hk_data_pipeline_staging`
+  
+[0m23:09:17.062655 [debug] [ThreadPool]: On create_kestra-sandbox-486905_hk_data_pipeline_mart: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "connection_name": "create_kestra-sandbox-486905_hk_data_pipeline_mart"} */
+create schema if not exists `kestra-sandbox-486905`.`hk_data_pipeline_mart`
+  
+[0m23:09:17.062862 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:09:17.062994 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:09:17.718184 [debug] [ThreadPool]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:95fd7bb1-add4-4be5-974c-319dfd73fb7e&page=queryresults
+[0m23:09:18.722327 [debug] [ThreadPool]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:b8fbe135-297c-41e2-8b86-2c21615aafeb&page=queryresults
+[0m23:09:20.408835 [debug] [ThreadPool]: SQL status: OK in 2.690 seconds
+[0m23:09:21.362499 [debug] [ThreadPool]: SQL status: OK in 2.640 seconds
+[0m23:09:21.366929 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_kestra-sandbox-486905_hk_data_pipeline_staging, now list_kestra-sandbox-486905_hk_data_pipeline_staging)
+[0m23:09:21.367422 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_kestra-sandbox-486905_hk_data_pipeline_mart, now list_kestra-sandbox-486905_hk_data_pipeline_mart)
+[0m23:09:21.367674 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:09:21.367938 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:09:22.181801 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11cda0290>]}
+[0m23:09:22.182512 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:09:22.187366 [debug] [Thread-2 (]: Began running node model.hk_data_pipeline.stg_weather
+[0m23:09:22.187731 [debug] [Thread-1 (]: Began running node model.hk_data_pipeline.stg_air_quality
+[0m23:09:22.188204 [info ] [Thread-2 (]: 2 of 4 START sql view model hk_data_pipeline_staging.stg_weather ............... [RUN]
+[0m23:09:22.188577 [info ] [Thread-1 (]: 1 of 4 START sql view model hk_data_pipeline_staging.stg_air_quality ........... [RUN]
+[0m23:09:22.188899 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_mart, now model.hk_data_pipeline.stg_weather)
+[0m23:09:22.189137 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_staging, now model.hk_data_pipeline.stg_air_quality)
+[0m23:09:22.189394 [debug] [Thread-2 (]: Began compiling node model.hk_data_pipeline.stg_weather
+[0m23:09:22.189650 [debug] [Thread-1 (]: Began compiling node model.hk_data_pipeline.stg_air_quality
+[0m23:09:22.195978 [debug] [Thread-2 (]: Writing injected SQL for node "model.hk_data_pipeline.stg_weather"
+[0m23:09:22.199156 [debug] [Thread-1 (]: Writing injected SQL for node "model.hk_data_pipeline.stg_air_quality"
+[0m23:09:22.200312 [debug] [Thread-2 (]: Began executing node model.hk_data_pipeline.stg_weather
+[0m23:09:22.200624 [debug] [Thread-1 (]: Began executing node model.hk_data_pipeline.stg_air_quality
+[0m23:09:22.218349 [debug] [Thread-1 (]: Writing runtime sql for node "model.hk_data_pipeline.stg_air_quality"
+[0m23:09:22.219742 [debug] [Thread-2 (]: Writing runtime sql for node "model.hk_data_pipeline.stg_weather"
+[0m23:09:22.220427 [debug] [Thread-2 (]: On model.hk_data_pipeline.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.stg_weather"} */
+
+
+  create or replace view `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_weather`
+  OPTIONS()
+  as with source as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline`.`weather`
+),
+
+deduplicated as (
+    select *
+    from source
+    qualify row_number() over (partition by time order by ingested_at desc) = 1
+)
+
+select
+    time,
+    temperature_2m,
+    relative_humidity_2m,
+    precipitation,
+    wind_speed_10m,
+    wind_direction_10m,
+    weather_code,
+    ingested_at
+from deduplicated;
+
+
+[0m23:09:22.220743 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:09:22.220981 [debug] [Thread-1 (]: On model.hk_data_pipeline.stg_air_quality: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.stg_air_quality"} */
+
+
+  create or replace view `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_air_quality`
+  OPTIONS()
+  as with source as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline`.`air_quality`
+),
+
+deduplicated as (
+    select *
+    from source
+    qualify row_number() over (partition by time order by ingested_at desc) = 1
+)
+
+select
+    time,
+    pm10,
+    pm2_5,
+    carbon_monoxide,
+    nitrogen_dioxide,
+    sulphur_dioxide,
+    ozone,
+    european_aqi,
+    ingested_at
+from deduplicated;
+
+
+[0m23:09:22.221644 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:09:24.423301 [debug] [Thread-2 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:4d2ba543-9a0e-4297-96cb-06449c56934a&page=queryresults
+[0m23:09:24.435869 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:e6781cf4-394a-476f-b539-9ad81d7a6433&page=queryresults
+[0m23:09:25.448142 [debug] [Thread-1 (]: SQL status: OK in 1.011 seconds
+[0m23:09:25.449374 [debug] [Thread-2 (]: SQL status: OK in 1.025 seconds
+[0m23:09:25.471446 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11cdd8520>]}
+[0m23:09:25.471803 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c919770>]}
+[0m23:09:25.472349 [info ] [Thread-2 (]: 2 of 4 OK created sql view model hk_data_pipeline_staging.stg_weather .......... [[32mCREATE VIEW (0 processed)[0m in 3.28s]
+[0m23:09:25.472792 [info ] [Thread-1 (]: 1 of 4 OK created sql view model hk_data_pipeline_staging.stg_air_quality ...... [[32mCREATE VIEW (0 processed)[0m in 3.28s]
+[0m23:09:25.473232 [debug] [Thread-2 (]: Finished running node model.hk_data_pipeline.stg_weather
+[0m23:09:25.473565 [debug] [Thread-1 (]: Finished running node model.hk_data_pipeline.stg_air_quality
+[0m23:09:25.474278 [debug] [Thread-4 (]: Began running node model.hk_data_pipeline.mart_daily_weather
+[0m23:09:25.474829 [debug] [Thread-3 (]: Began running node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:09:25.474604 [info ] [Thread-4 (]: 4 of 4 START sql table model hk_data_pipeline_mart.mart_daily_weather .......... [RUN]
+[0m23:09:25.475346 [info ] [Thread-3 (]: 3 of 4 START sql table model hk_data_pipeline_mart.mart_daily_air_quality ...... [RUN]
+[0m23:09:25.475893 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.hk_data_pipeline.mart_daily_weather'
+[0m23:09:25.476189 [debug] [Thread-3 (]: Acquiring new bigquery connection 'model.hk_data_pipeline.mart_daily_air_quality'
+[0m23:09:25.476422 [debug] [Thread-4 (]: Began compiling node model.hk_data_pipeline.mart_daily_weather
+[0m23:09:25.476631 [debug] [Thread-3 (]: Began compiling node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:09:25.479611 [debug] [Thread-4 (]: Writing injected SQL for node "model.hk_data_pipeline.mart_daily_weather"
+[0m23:09:25.481211 [debug] [Thread-3 (]: Writing injected SQL for node "model.hk_data_pipeline.mart_daily_air_quality"
+[0m23:09:25.481786 [debug] [Thread-4 (]: Began executing node model.hk_data_pipeline.mart_daily_weather
+[0m23:09:25.481980 [debug] [Thread-3 (]: Began executing node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:09:25.504478 [debug] [Thread-3 (]: Writing runtime sql for node "model.hk_data_pipeline.mart_daily_air_quality"
+[0m23:09:25.504768 [debug] [Thread-4 (]: Writing runtime sql for node "model.hk_data_pipeline.mart_daily_weather"
+[0m23:09:25.505203 [debug] [Thread-3 (]: On model.hk_data_pipeline.mart_daily_air_quality: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.mart_daily_air_quality"} */
+
+  
+    
+
+    create or replace table `kestra-sandbox-486905`.`hk_data_pipeline_mart`.`mart_daily_air_quality`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      with air_quality as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_air_quality`
+)
+
+select
+    date(time)              as date,
+    avg(pm10)               as avg_pm10,
+    max(pm10)               as max_pm10,
+    avg(pm2_5)              as avg_pm2_5,
+    max(pm2_5)              as max_pm2_5,
+    avg(nitrogen_dioxide)   as avg_no2,
+    max(nitrogen_dioxide)   as max_no2,
+    avg(ozone)              as avg_o3,
+    max(ozone)              as max_o3,
+    avg(european_aqi)       as avg_aqi,
+    max(european_aqi)       as max_aqi
+from air_quality
+group by 1
+order by 1 desc
+    );
+  
+[0m23:09:25.505428 [debug] [Thread-4 (]: On model.hk_data_pipeline.mart_daily_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.mart_daily_weather"} */
+
+  
+    
+
+    create or replace table `kestra-sandbox-486905`.`hk_data_pipeline_mart`.`mart_daily_weather`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      with weather as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_weather`
+)
+
+select
+    date(time)                      as date,
+    avg(temperature_2m)             as avg_temp_c,
+    max(temperature_2m)             as max_temp_c,
+    min(temperature_2m)             as min_temp_c,
+    avg(relative_humidity_2m)       as avg_humidity_pct,
+    sum(precipitation)              as total_precipitation_mm,
+    avg(wind_speed_10m)             as avg_wind_speed_kmh,
+    max(wind_speed_10m)             as max_wind_speed_kmh
+from weather
+group by 1
+order by 1 desc
+    );
+  
+[0m23:09:25.505600 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m23:09:25.505732 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m23:09:27.591061 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:a5114cb4-8321-4626-bd94-02d57702fbc4&page=queryresults
+[0m23:09:27.765002 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:49fdfd17-198d-47e0-baf1-111eee379e00&page=queryresults
+[0m23:09:29.291222 [debug] [Thread-3 (]: SQL status: OK in 1.699 seconds
+[0m23:09:29.401957 [debug] [Thread-4 (]: SQL status: OK in 1.637 seconds
+[0m23:09:29.951325 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d077c50>]}
+[0m23:09:29.951773 [info ] [Thread-3 (]: 3 of 4 OK created sql table model hk_data_pipeline_mart.mart_daily_air_quality . [[32mCREATE TABLE (7.0 rows, 9.2 KiB processed)[0m in 4.48s]
+[0m23:09:29.952084 [debug] [Thread-3 (]: Finished running node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:09:30.134185 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '9a24ee2a-928b-4d3f-9175-3e2c214b754a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d1cad60>]}
+[0m23:09:30.134878 [info ] [Thread-4 (]: 4 of 4 OK created sql table model hk_data_pipeline_mart.mart_daily_weather ..... [[32mCREATE TABLE (4.0 rows, 7.9 KiB processed)[0m in 4.66s]
+[0m23:09:30.135302 [debug] [Thread-4 (]: Finished running node model.hk_data_pipeline.mart_daily_weather
+[0m23:09:30.136403 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:09:30.136865 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:09:30.137067 [debug] [MainThread]: Connection 'model.hk_data_pipeline.stg_air_quality' was properly closed.
+[0m23:09:30.137242 [debug] [MainThread]: Connection 'model.hk_data_pipeline.stg_weather' was properly closed.
+[0m23:09:30.137414 [debug] [MainThread]: Connection 'model.hk_data_pipeline.mart_daily_weather' was properly closed.
+[0m23:09:30.137574 [debug] [MainThread]: Connection 'model.hk_data_pipeline.mart_daily_air_quality' was properly closed.
+[0m23:09:30.137867 [info ] [MainThread]: 
+[0m23:09:30.138100 [info ] [MainThread]: Finished running 2 table models, 2 view models in 0 hours 0 minutes and 15.63 seconds (15.63s).
+[0m23:09:30.138918 [debug] [MainThread]: Command end result
+[0m23:09:30.164781 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:09:30.166832 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:09:30.170202 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/run_results.json
+[0m23:09:30.170373 [info ] [MainThread]: 
+[0m23:09:30.170555 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:09:30.170680 [info ] [MainThread]: 
+[0m23:09:30.170850 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m23:09:30.174041 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 16.513344, "process_in_blocks": "0", "process_kernel_time": 0.204579, "process_mem_max_rss": "236208128", "process_out_blocks": "0", "process_user_time": 1.425117}
+[0m23:09:30.174336 [debug] [MainThread]: Command `dbt run` succeeded at 23:09:30.174287 after 16.51 seconds
+[0m23:09:30.174568 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c440b30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d1f7950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d1f7770>]}
+[0m23:09:30.174741 [debug] [MainThread]: Flushing usage events
+[0m23:09:30.268265 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:26:09.178537 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a6bdd30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b88b9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b88b890>]}
+
+
+============================== 23:26:09.181243 | 6baaae54-21ae-493d-a98e-96fb3cbbbc41 ==============================
+[0m23:26:09.181243 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:26:09.181502 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs', 'no_print': 'None', 'use_colors': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'log_format': 'default', 'version_check': 'True', 'profiles_dir': '.', 'empty': 'None', 'quiet': 'False', 'invocation_command': 'dbt test --profiles-dir . --select source:raw', 'write_json': 'True', 'introspect': 'True', 'partial_parse': 'True', 'warn_error': 'None', 'cache_selected_only': 'False', 'static_parser': 'True', 'target_path': 'None', 'printer_width': '80'}
+[0m23:26:11.083083 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6baaae54-21ae-493d-a98e-96fb3cbbbc41', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ab9c770>]}
+[0m23:26:11.101346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6baaae54-21ae-493d-a98e-96fb3cbbbc41', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a7e3bd0>]}
+[0m23:26:11.101706 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:26:11.155502 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m23:26:11.211365 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:26:11.211729 [debug] [MainThread]: Partial parsing: updated file: hk_data_pipeline://models/staging/sources.yml
+[0m23:26:11.301603 [warn ] [MainThread]: [[33mWARNING[0m][PropertyMovedToConfigDeprecation]: Deprecated functionality
+Found `severity` as a top-level property of `data_tests.unique.severity` in file
+`models/staging/sources.yml`. The `severity` top-level property should be moved
+into the `config` of `data_tests.unique.severity`.
+[0m23:26:11.302626 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '6baaae54-21ae-493d-a98e-96fb3cbbbc41', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ac6bd50>]}
+[0m23:26:11.364895 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6baaae54-21ae-493d-a98e-96fb3cbbbc41', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11abc72f0>]}
+[0m23:26:11.394782 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:26:11.395799 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:26:11.444695 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '6baaae54-21ae-493d-a98e-96fb3cbbbc41', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b162eb0>]}
+[0m23:26:11.444893 [info ] [MainThread]: Found 4 models, 4 data tests, 2 sources, 549 macros
+[0m23:26:11.444993 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6baaae54-21ae-493d-a98e-96fb3cbbbc41', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b26b520>]}
+[0m23:26:11.445595 [info ] [MainThread]: 
+[0m23:26:11.445707 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m23:26:11.445787 [info ] [MainThread]: 
+[0m23:26:11.445940 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m23:26:11.447227 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905_hk_data_pipeline_mart'
+[0m23:26:11.447434 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905_hk_data_pipeline_staging'
+[0m23:26:11.447536 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:26:11.447632 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:26:12.495488 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6baaae54-21ae-493d-a98e-96fb3cbbbc41', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b65e210>]}
+[0m23:26:12.496170 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:26:12.501027 [debug] [Thread-2 (]: Began running node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:26:12.501355 [debug] [Thread-4 (]: Began running node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:26:12.501633 [debug] [Thread-1 (]: Began running node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:26:12.501878 [debug] [Thread-3 (]: Began running node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:26:12.502247 [info ] [Thread-2 (]: 2 of 4 START test source_not_null_raw_weather_time ............................. [RUN]
+[0m23:26:12.502565 [info ] [Thread-4 (]: 4 of 4 START test source_unique_raw_weather_time ............................... [RUN]
+[0m23:26:12.502852 [info ] [Thread-1 (]: 1 of 4 START test source_not_null_raw_air_quality_time ......................... [RUN]
+[0m23:26:12.503479 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_staging, now test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a)
+[0m23:26:12.503129 [info ] [Thread-3 (]: 3 of 4 START test source_unique_raw_air_quality_time ........................... [RUN]
+[0m23:26:12.503857 [debug] [Thread-4 (]: Acquiring new bigquery connection 'test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da'
+[0m23:26:12.504069 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_mart, now test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea)
+[0m23:26:12.504292 [debug] [Thread-2 (]: Began compiling node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:26:12.504531 [debug] [Thread-3 (]: Acquiring new bigquery connection 'test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0'
+[0m23:26:12.504720 [debug] [Thread-4 (]: Began compiling node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:26:12.504908 [debug] [Thread-1 (]: Began compiling node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:26:12.519031 [debug] [Thread-2 (]: Writing injected SQL for node "test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a"
+[0m23:26:12.519387 [debug] [Thread-3 (]: Began compiling node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:26:12.523609 [debug] [Thread-4 (]: Writing injected SQL for node "test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da"
+[0m23:26:12.525719 [debug] [Thread-1 (]: Writing injected SQL for node "test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea"
+[0m23:26:12.528343 [debug] [Thread-3 (]: Writing injected SQL for node "test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0"
+[0m23:26:12.528944 [debug] [Thread-1 (]: Began executing node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:26:12.539609 [debug] [Thread-1 (]: Writing runtime sql for node "test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea"
+[0m23:26:12.539841 [debug] [Thread-4 (]: Began executing node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:26:12.539984 [debug] [Thread-2 (]: Began executing node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:26:12.540169 [debug] [Thread-3 (]: Began executing node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:26:12.541403 [debug] [Thread-4 (]: Writing runtime sql for node "test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da"
+[0m23:26:12.542263 [debug] [Thread-2 (]: Writing runtime sql for node "test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a"
+[0m23:26:12.543197 [debug] [Thread-3 (]: Writing runtime sql for node "test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0"
+[0m23:26:12.543592 [debug] [Thread-1 (]: On test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select time
+from `kestra-sandbox-486905`.`hk_data_pipeline`.`air_quality`
+where time is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:26:12.543776 [debug] [Thread-4 (]: On test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select time as unique_field
+  from `kestra-sandbox-486905`.`hk_data_pipeline`.`weather`
+  where time is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:26:12.544024 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:26:12.544188 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m23:26:12.544329 [debug] [Thread-2 (]: On test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select time
+from `kestra-sandbox-486905`.`hk_data_pipeline`.`weather`
+where time is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:26:12.544491 [debug] [Thread-3 (]: On test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select time as unique_field
+  from `kestra-sandbox-486905`.`hk_data_pipeline`.`air_quality`
+  where time is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:26:12.545376 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:26:12.545604 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m23:26:13.582347 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:a7a606f5-28a2-4ac0-ac66-8ea83fa48201&page=queryresults
+[0m23:26:13.610838 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:51047de2-f84a-42ae-808e-940dc83376b9&page=queryresults
+[0m23:26:14.038647 [debug] [Thread-3 (]: SQL status: OK in 0.455 seconds
+[0m23:26:14.118361 [debug] [Thread-4 (]: SQL status: OK in 0.507 seconds
+[0m23:26:14.411887 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:cc4f523f-a062-4f11-8b66-57257f20cd7b&page=queryresults
+[0m23:26:14.447488 [debug] [Thread-2 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:9812c9e5-a883-4a47-8da0-557eea93b9f6&page=queryresults
+[0m23:26:14.777354 [info ] [Thread-3 (]: 3 of 4 PASS source_unique_raw_air_quality_time ................................. [[32mPASS[0m in 2.27s]
+[0m23:26:14.777916 [debug] [Thread-3 (]: Finished running node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:26:14.809055 [debug] [Thread-1 (]: SQL status: OK in 0.397 seconds
+[0m23:26:14.809687 [debug] [Thread-2 (]: SQL status: OK in 0.362 seconds
+[0m23:26:14.949694 [warn ] [Thread-4 (]: 4 of 4 WARN 24 source_unique_raw_weather_time .................................. [[33mWARN 24[0m in 2.45s]
+[0m23:26:14.950314 [debug] [Thread-4 (]: Finished running node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:26:15.521420 [info ] [Thread-1 (]: 1 of 4 PASS source_not_null_raw_air_quality_time ............................... [[32mPASS[0m in 3.02s]
+[0m23:26:15.522290 [debug] [Thread-1 (]: Finished running node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:26:15.676318 [info ] [Thread-2 (]: 2 of 4 PASS source_not_null_raw_weather_time ................................... [[32mPASS[0m in 3.17s]
+[0m23:26:15.677342 [debug] [Thread-2 (]: Finished running node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:26:15.679062 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:26:15.679637 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:26:15.679872 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea' was properly closed.
+[0m23:26:15.680059 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a' was properly closed.
+[0m23:26:15.680225 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da' was properly closed.
+[0m23:26:15.680398 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0' was properly closed.
+[0m23:26:15.680637 [info ] [MainThread]: 
+[0m23:26:15.680877 [info ] [MainThread]: Finished running 4 data tests in 0 hours 0 minutes and 4.23 seconds (4.23s).
+[0m23:26:15.681698 [debug] [MainThread]: Command end result
+[0m23:26:15.714426 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:26:15.716210 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:26:15.720306 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/run_results.json
+[0m23:26:15.720489 [info ] [MainThread]: 
+[0m23:26:15.720670 [info ] [MainThread]: [33mCompleted with 1 warning:[0m
+[0m23:26:15.720803 [info ] [MainThread]: 
+[0m23:26:15.720975 [warn ] [MainThread]: [33mWarning in test source_unique_raw_weather_time (models/staging/sources.yml)[0m
+[0m23:26:15.721128 [warn ] [MainThread]: Got 24 results, configured to warn if != 0
+[0m23:26:15.721241 [info ] [MainThread]: 
+[0m23:26:15.721377 [info ] [MainThread]:   compiled code at target/compiled/hk_data_pipeline/models/staging/sources.yml/source_unique_raw_weather_time.sql
+[0m23:26:15.721501 [info ] [MainThread]: 
+[0m23:26:15.721646 [info ] [MainThread]: Done. PASS=3 WARN=1 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m23:26:15.721949 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- PropertyMovedToConfigDeprecation: 4 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m23:26:15.725245 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 6.5772343, "process_in_blocks": "0", "process_kernel_time": 0.291599, "process_mem_max_rss": "282918912", "process_out_blocks": "0", "process_user_time": 1.325017}
+[0m23:26:15.725495 [debug] [MainThread]: Command `dbt test` succeeded at 23:26:15.725453 after 6.58 seconds
+[0m23:26:15.725685 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11b679230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bb33ed0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11bb30190>]}
+[0m23:26:15.726155 [debug] [MainThread]: Flushing usage events
+[0m23:26:15.882699 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:30:07.401621 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c965d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10db339d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10db33890>]}
+
+
+============================== 23:30:07.404871 | f82afbc0-6abb-4cc5-adfb-cd015a035333 ==============================
+[0m23:30:07.404871 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:30:07.405138 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '.', 'debug': 'False', 'use_colors': 'True', 'empty': 'False', 'invocation_command': 'dbt run --profiles-dir .', 'log_format': 'default', 'cache_selected_only': 'False', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs', 'target_path': 'None', 'introspect': 'True', 'quiet': 'False', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'warn_error': 'None', 'fail_fast': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'partial_parse': 'True'}
+[0m23:30:08.007522 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce44770>]}
+[0m23:30:08.026066 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ca5fbd0>]}
+[0m23:30:08.026319 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:30:08.087336 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m23:30:08.148685 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 3 files changed.
+[0m23:30:08.149046 [debug] [MainThread]: Partial parsing: updated file: hk_data_pipeline://models/staging/sources.yml
+[0m23:30:08.149168 [debug] [MainThread]: Partial parsing: updated file: hk_data_pipeline://models/staging/stg_weather.sql
+[0m23:30:08.149260 [debug] [MainThread]: Partial parsing: updated file: hk_data_pipeline://models/staging/stg_air_quality.sql
+[0m23:30:08.299750 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d3e8a50>]}
+[0m23:30:08.330244 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:30:08.331277 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:30:08.335919 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ce3fb60>]}
+[0m23:30:08.336080 [info ] [MainThread]: Found 4 models, 4 data tests, 2 sources, 549 macros
+[0m23:30:08.336183 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d3f33f0>]}
+[0m23:30:08.336862 [info ] [MainThread]: 
+[0m23:30:08.336982 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m23:30:08.337067 [info ] [MainThread]: 
+[0m23:30:08.337217 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m23:30:08.338506 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905'
+[0m23:30:08.338701 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905'
+[0m23:30:08.338811 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:30:08.340265 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:30:09.955951 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905, now list_kestra-sandbox-486905_hk_data_pipeline_staging)
+[0m23:30:09.956595 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905, now list_kestra-sandbox-486905_hk_data_pipeline_mart)
+[0m23:30:09.956844 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:30:09.957073 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:30:10.440839 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d376270>]}
+[0m23:30:10.441467 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:30:10.445206 [debug] [Thread-1 (]: Began running node model.hk_data_pipeline.stg_air_quality
+[0m23:30:10.446007 [info ] [Thread-1 (]: 1 of 4 START sql view model hk_data_pipeline_staging.stg_air_quality ........... [RUN]
+[0m23:30:10.446491 [debug] [Thread-2 (]: Began running node model.hk_data_pipeline.stg_weather
+[0m23:30:10.446826 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_staging, now model.hk_data_pipeline.stg_air_quality)
+[0m23:30:10.447174 [info ] [Thread-2 (]: 2 of 4 START sql view model hk_data_pipeline_staging.stg_weather ............... [RUN]
+[0m23:30:10.447432 [debug] [Thread-1 (]: Began compiling node model.hk_data_pipeline.stg_air_quality
+[0m23:30:10.447663 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_mart, now model.hk_data_pipeline.stg_weather)
+[0m23:30:10.454384 [debug] [Thread-1 (]: Writing injected SQL for node "model.hk_data_pipeline.stg_air_quality"
+[0m23:30:10.454807 [debug] [Thread-2 (]: Began compiling node model.hk_data_pipeline.stg_weather
+[0m23:30:10.457335 [debug] [Thread-2 (]: Writing injected SQL for node "model.hk_data_pipeline.stg_weather"
+[0m23:30:10.458137 [debug] [Thread-1 (]: Began executing node model.hk_data_pipeline.stg_air_quality
+[0m23:30:10.458379 [debug] [Thread-2 (]: Began executing node model.hk_data_pipeline.stg_weather
+[0m23:30:10.475028 [debug] [Thread-1 (]: Writing runtime sql for node "model.hk_data_pipeline.stg_air_quality"
+[0m23:30:10.476280 [debug] [Thread-2 (]: Writing runtime sql for node "model.hk_data_pipeline.stg_weather"
+[0m23:30:10.476830 [debug] [Thread-2 (]: On model.hk_data_pipeline.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.stg_weather"} */
+
+
+  create or replace view `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_weather`
+  OPTIONS()
+  as with source as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline`.`weather`
+),
+
+deduplicated as (
+    select *
+    from source
+    qualify row_number() over (partition by time order by ingested_at desc) = 1
+)
+
+select
+    cast(time                 as timestamp)  as time,
+    cast(temperature_2m       as float64)    as temperature_2m,
+    cast(relative_humidity_2m as float64)    as relative_humidity_2m,
+    cast(precipitation        as float64)    as precipitation,
+    cast(wind_speed_10m       as float64)    as wind_speed_10m,
+    cast(wind_direction_10m   as float64)    as wind_direction_10m,
+    cast(weather_code         as int64)      as weather_code,
+    cast(ingested_at          as timestamp)  as ingested_at
+from deduplicated;
+
+
+[0m23:30:10.477084 [debug] [Thread-1 (]: On model.hk_data_pipeline.stg_air_quality: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.stg_air_quality"} */
+
+
+  create or replace view `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_air_quality`
+  OPTIONS()
+  as with source as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline`.`air_quality`
+),
+
+deduplicated as (
+    select *
+    from source
+    qualify row_number() over (partition by time order by ingested_at desc) = 1
+)
+
+select
+    cast(time             as timestamp)  as time,
+    cast(pm10             as float64)    as pm10,
+    cast(pm2_5            as float64)    as pm2_5,
+    cast(carbon_monoxide  as float64)    as carbon_monoxide,
+    cast(nitrogen_dioxide as float64)    as nitrogen_dioxide,
+    cast(sulphur_dioxide  as float64)    as sulphur_dioxide,
+    cast(ozone            as float64)    as ozone,
+    cast(european_aqi     as int64)      as european_aqi,
+    cast(ingested_at      as timestamp)  as ingested_at
+from deduplicated;
+
+
+[0m23:30:10.477313 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:30:10.477469 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:30:11.163286 [debug] [Thread-2 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:9aae6a38-11f0-42ac-a9d9-1af682f347b0&page=queryresults
+[0m23:30:11.227495 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:cda46a2f-9825-4497-a026-512163672490&page=queryresults
+[0m23:30:11.816993 [debug] [Thread-2 (]: SQL status: OK in 0.653 seconds
+[0m23:30:11.865437 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d6a8c50>]}
+[0m23:30:11.865772 [info ] [Thread-2 (]: 2 of 4 OK created sql view model hk_data_pipeline_staging.stg_weather .......... [[32mCREATE VIEW (0 processed)[0m in 1.42s]
+[0m23:30:11.866020 [debug] [Thread-2 (]: Finished running node model.hk_data_pipeline.stg_weather
+[0m23:30:11.866266 [debug] [Thread-3 (]: Began running node model.hk_data_pipeline.mart_daily_weather
+[0m23:30:11.866444 [info ] [Thread-3 (]: 3 of 4 START sql table model hk_data_pipeline_mart.mart_daily_weather .......... [RUN]
+[0m23:30:11.866643 [debug] [Thread-3 (]: Acquiring new bigquery connection 'model.hk_data_pipeline.mart_daily_weather'
+[0m23:30:11.866773 [debug] [Thread-3 (]: Began compiling node model.hk_data_pipeline.mart_daily_weather
+[0m23:30:11.867873 [debug] [Thread-3 (]: Writing injected SQL for node "model.hk_data_pipeline.mart_daily_weather"
+[0m23:30:11.868187 [debug] [Thread-3 (]: Began executing node model.hk_data_pipeline.mart_daily_weather
+[0m23:30:11.872321 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m23:30:11.882546 [debug] [Thread-1 (]: SQL status: OK in 0.655 seconds
+[0m23:30:11.883739 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d42e200>]}
+[0m23:30:11.883984 [info ] [Thread-1 (]: 1 of 4 OK created sql view model hk_data_pipeline_staging.stg_air_quality ...... [[32mCREATE VIEW (0 processed)[0m in 1.44s]
+[0m23:30:11.884197 [debug] [Thread-1 (]: Finished running node model.hk_data_pipeline.stg_air_quality
+[0m23:30:11.884419 [debug] [Thread-4 (]: Began running node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:30:11.884638 [info ] [Thread-4 (]: 4 of 4 START sql table model hk_data_pipeline_mart.mart_daily_air_quality ...... [RUN]
+[0m23:30:11.884846 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.hk_data_pipeline.mart_daily_air_quality'
+[0m23:30:11.884975 [debug] [Thread-4 (]: Began compiling node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:30:11.886024 [debug] [Thread-4 (]: Writing injected SQL for node "model.hk_data_pipeline.mart_daily_air_quality"
+[0m23:30:11.886307 [debug] [Thread-4 (]: Began executing node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:30:11.887029 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m23:30:12.313966 [debug] [Thread-4 (]: Writing runtime sql for node "model.hk_data_pipeline.mart_daily_air_quality"
+[0m23:30:12.314951 [debug] [Thread-4 (]: On model.hk_data_pipeline.mart_daily_air_quality: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.mart_daily_air_quality"} */
+
+  
+    
+
+    create or replace table `kestra-sandbox-486905`.`hk_data_pipeline_mart`.`mart_daily_air_quality`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      with air_quality as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_air_quality`
+)
+
+select
+    date(time)              as date,
+    avg(pm10)               as avg_pm10,
+    max(pm10)               as max_pm10,
+    avg(pm2_5)              as avg_pm2_5,
+    max(pm2_5)              as max_pm2_5,
+    avg(nitrogen_dioxide)   as avg_no2,
+    max(nitrogen_dioxide)   as max_no2,
+    avg(ozone)              as avg_o3,
+    max(ozone)              as max_o3,
+    avg(european_aqi)       as avg_aqi,
+    max(european_aqi)       as max_aqi
+from air_quality
+group by 1
+order by 1 desc
+    );
+  
+[0m23:30:12.316055 [debug] [Thread-3 (]: Writing runtime sql for node "model.hk_data_pipeline.mart_daily_weather"
+[0m23:30:12.316816 [debug] [Thread-3 (]: On model.hk_data_pipeline.mart_daily_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.mart_daily_weather"} */
+
+  
+    
+
+    create or replace table `kestra-sandbox-486905`.`hk_data_pipeline_mart`.`mart_daily_weather`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      with weather as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_weather`
+)
+
+select
+    date(time)                      as date,
+    avg(temperature_2m)             as avg_temp_c,
+    max(temperature_2m)             as max_temp_c,
+    min(temperature_2m)             as min_temp_c,
+    avg(relative_humidity_2m)       as avg_humidity_pct,
+    sum(precipitation)              as total_precipitation_mm,
+    avg(wind_speed_10m)             as avg_wind_speed_kmh,
+    max(wind_speed_10m)             as max_wind_speed_kmh
+from weather
+group by 1
+order by 1 desc
+    );
+  
+[0m23:30:13.025203 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:e8a3ecad-152b-4120-83cf-5f01b51b6781&page=queryresults
+[0m23:30:13.253619 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:9828cfa1-f5d4-4bdd-99ac-3dfdb4a3853c&page=queryresults
+[0m23:30:14.775990 [debug] [Thread-4 (]: SQL status: OK in 1.750 seconds
+[0m23:30:14.865561 [debug] [Thread-3 (]: SQL status: OK in 1.611 seconds
+[0m23:30:15.154411 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d436990>]}
+[0m23:30:15.154702 [info ] [Thread-4 (]: 4 of 4 OK created sql table model hk_data_pipeline_mart.mart_daily_air_quality . [[32mCREATE TABLE (7.0 rows, 9.2 KiB processed)[0m in 3.27s]
+[0m23:30:15.154895 [debug] [Thread-4 (]: Finished running node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:30:15.188046 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f82afbc0-6abb-4cc5-adfb-cd015a035333', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d7948d0>]}
+[0m23:30:15.188325 [info ] [Thread-3 (]: 3 of 4 OK created sql table model hk_data_pipeline_mart.mart_daily_weather ..... [[32mCREATE TABLE (4.0 rows, 7.9 KiB processed)[0m in 3.32s]
+[0m23:30:15.188518 [debug] [Thread-3 (]: Finished running node model.hk_data_pipeline.mart_daily_weather
+[0m23:30:15.189083 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:30:15.189271 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:30:15.189361 [debug] [MainThread]: Connection 'model.hk_data_pipeline.stg_air_quality' was properly closed.
+[0m23:30:15.189440 [debug] [MainThread]: Connection 'model.hk_data_pipeline.stg_weather' was properly closed.
+[0m23:30:15.189511 [debug] [MainThread]: Connection 'model.hk_data_pipeline.mart_daily_weather' was properly closed.
+[0m23:30:15.189579 [debug] [MainThread]: Connection 'model.hk_data_pipeline.mart_daily_air_quality' was properly closed.
+[0m23:30:15.189698 [info ] [MainThread]: 
+[0m23:30:15.189795 [info ] [MainThread]: Finished running 2 table models, 2 view models in 0 hours 0 minutes and 6.85 seconds (6.85s).
+[0m23:30:15.190126 [debug] [MainThread]: Command end result
+[0m23:30:15.200682 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:30:15.201802 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:30:15.204111 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/run_results.json
+[0m23:30:15.204236 [info ] [MainThread]: 
+[0m23:30:15.204356 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:30:15.204444 [info ] [MainThread]: 
+[0m23:30:15.204548 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m23:30:15.206859 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 7.83177, "process_in_blocks": "0", "process_kernel_time": 0.268174, "process_mem_max_rss": "243924992", "process_out_blocks": "0", "process_user_time": 1.208436}
+[0m23:30:15.207026 [debug] [MainThread]: Command `dbt run` succeeded at 23:30:15.206999 after 7.83 seconds
+[0m23:30:15.207152 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dbecad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104be7cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cce3b30>]}
+[0m23:30:15.207268 [debug] [MainThread]: Flushing usage events
+[0m23:30:15.400510 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:34:32.872275 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cdc5d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df67750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df679d0>]}
+
+
+============================== 23:34:32.874940 | 0a0e4804-b512-4cd0-af39-1ee03dac27d2 ==============================
+[0m23:34:32.874940 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:34:32.875135 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'static_parser': 'True', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs', 'quiet': 'False', 'fail_fast': 'False', 'empty': 'None', 'profiles_dir': '/Users/izzyyang/.dbt', 'use_colors': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'warn_error': 'None', 'printer_width': '80', 'introspect': 'True', 'use_experimental_parser': 'False', 'write_json': 'True', 'no_print': 'None', 'indirect_selection': 'eager', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt debug', 'debug': 'False', 'log_format': 'default', 'log_cache_events': 'False'}
+[0m23:34:32.881853 [info ] [MainThread]: dbt version: 1.11.11
+[0m23:34:32.881961 [info ] [MainThread]: python version: 3.13.13
+[0m23:34:32.882039 [info ] [MainThread]: python path: /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/.venv/bin/python3
+[0m23:34:32.882110 [info ] [MainThread]: os info: macOS-26.4.1-arm64-arm-64bit-Mach-O
+[0m23:34:33.437089 [info ] [MainThread]: Using profiles dir at /Users/izzyyang/.dbt
+[0m23:34:33.437293 [info ] [MainThread]: Using profiles.yml file at /Users/izzyyang/.dbt/profiles.yml
+[0m23:34:33.437382 [info ] [MainThread]: Using dbt_project.yml file at /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/dbt_project.yml
+[0m23:34:33.437463 [info ] [MainThread]: adapter type: bigquery
+[0m23:34:33.437535 [info ] [MainThread]: adapter version: 1.11.1
+[0m23:34:33.467947 [info ] [MainThread]: Configuration:
+[0m23:34:33.468122 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m23:34:33.468265 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m23:34:33.468349 [info ] [MainThread]: Required dependencies:
+[0m23:34:33.468478 [debug] [MainThread]: Executing "git --help"
+[0m23:34:33.478369 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m23:34:33.478676 [debug] [MainThread]: STDERR: "b''"
+[0m23:34:33.478779 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m23:34:33.478867 [info ] [MainThread]: Connection:
+[0m23:34:33.478990 [info ] [MainThread]:   method: oauth
+[0m23:34:33.479062 [info ] [MainThread]:   database: kestra-sandbox-486905
+[0m23:34:33.479132 [info ] [MainThread]:   execution_project: kestra-sandbox-486905
+[0m23:34:33.479199 [info ] [MainThread]:   schema: hk_data_pipeline
+[0m23:34:33.479264 [info ] [MainThread]:   location: asia-east2
+[0m23:34:33.479331 [info ] [MainThread]:   priority: None
+[0m23:34:33.479396 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m23:34:33.479461 [info ] [MainThread]:   impersonate_service_account: None
+[0m23:34:33.479524 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m23:34:33.479586 [info ] [MainThread]:   job_retries: 1
+[0m23:34:33.479647 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m23:34:33.479710 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m23:34:33.479771 [info ] [MainThread]:   timeout_seconds: 300
+[0m23:34:33.479833 [info ] [MainThread]:   client_id: None
+[0m23:34:33.479892 [info ] [MainThread]:   token_uri: None
+[0m23:34:33.479954 [info ] [MainThread]:   compute_region: None
+[0m23:34:33.480013 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m23:34:33.480074 [info ] [MainThread]:   gcs_bucket: None
+[0m23:34:33.480138 [info ] [MainThread]:   dataproc_batch: None
+[0m23:34:33.480339 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:34:33.530904 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m23:34:33.531180 [debug] [MainThread]: On debug: select 1 as id
+[0m23:34:33.531344 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:34:34.644480 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:42571e4a-a8e6-4d24-81c7-98341bd1c089&page=queryresults
+[0m23:34:35.148520 [debug] [MainThread]: SQL status: OK in 0.503 seconds
+[0m23:34:35.633266 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m23:34:35.633846 [info ] [MainThread]: [32mAll checks passed![0m
+[0m23:34:35.642103 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.7975137, "process_in_blocks": "0", "process_kernel_time": 0.225324, "process_mem_max_rss": "228556800", "process_out_blocks": "0", "process_user_time": 0.794161}
+[0m23:34:35.642652 [debug] [MainThread]: Command `dbt debug` succeeded at 23:34:35.642568 after 2.80 seconds
+[0m23:34:35.642930 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m23:34:35.643237 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d055a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d097770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d0606b0>]}
+[0m23:34:35.643604 [debug] [MainThread]: Flushing usage events
+[0m23:34:35.815901 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:41:27.413851 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cab5d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc5b750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc5b9d0>]}
+
+
+============================== 23:41:27.416703 | 31afe16f-c0c5-426e-ab54-f0dc2144778f ==============================
+[0m23:41:27.416703 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:41:27.416912 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'empty': 'None', 'log_format': 'default', 'use_experimental_parser': 'False', 'target_path': 'None', 'write_json': 'True', 'profiles_dir': '/Users/izzyyang/.dbt', 'warn_error': 'None', 'indirect_selection': 'eager', 'version_check': 'True', 'no_print': 'None', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs', 'fail_fast': 'False', 'debug': 'False', 'partial_parse': 'True', 'use_colors': 'True', 'log_cache_events': 'False', 'invocation_command': 'dbt debug', 'static_parser': 'True'}
+[0m23:41:27.424726 [info ] [MainThread]: dbt version: 1.11.11
+[0m23:41:27.424868 [info ] [MainThread]: python version: 3.13.13
+[0m23:41:27.424957 [info ] [MainThread]: python path: /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/.venv/bin/python3
+[0m23:41:27.425034 [info ] [MainThread]: os info: macOS-26.4.1-arm64-arm-64bit-Mach-O
+[0m23:41:27.969406 [info ] [MainThread]: Using profiles dir at /Users/izzyyang/.dbt
+[0m23:41:27.969597 [info ] [MainThread]: Using profiles.yml file at /Users/izzyyang/.dbt/profiles.yml
+[0m23:41:27.969692 [info ] [MainThread]: Using dbt_project.yml file at /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/dbt_project.yml
+[0m23:41:27.969774 [info ] [MainThread]: adapter type: bigquery
+[0m23:41:27.969849 [info ] [MainThread]: adapter version: 1.11.1
+[0m23:41:28.000473 [info ] [MainThread]: Configuration:
+[0m23:41:28.000677 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m23:41:28.000774 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m23:41:28.000852 [info ] [MainThread]: Required dependencies:
+[0m23:41:28.000983 [debug] [MainThread]: Executing "git --help"
+[0m23:41:28.011868 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m23:41:28.012205 [debug] [MainThread]: STDERR: "b''"
+[0m23:41:28.012313 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m23:41:28.012417 [info ] [MainThread]: Connection:
+[0m23:41:28.012541 [info ] [MainThread]:   method: oauth
+[0m23:41:28.012615 [info ] [MainThread]:   database: kestra-sandbox-486905
+[0m23:41:28.012689 [info ] [MainThread]:   execution_project: kestra-sandbox-486905
+[0m23:41:28.012759 [info ] [MainThread]:   schema: hk_data_pipeline
+[0m23:41:28.012826 [info ] [MainThread]:   location: asia-east2
+[0m23:41:28.012895 [info ] [MainThread]:   priority: None
+[0m23:41:28.012963 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m23:41:28.013032 [info ] [MainThread]:   impersonate_service_account: None
+[0m23:41:28.013098 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m23:41:28.013163 [info ] [MainThread]:   job_retries: 1
+[0m23:41:28.013230 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m23:41:28.013345 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m23:41:28.013468 [info ] [MainThread]:   timeout_seconds: 300
+[0m23:41:28.013556 [info ] [MainThread]:   client_id: None
+[0m23:41:28.013634 [info ] [MainThread]:   token_uri: None
+[0m23:41:28.013703 [info ] [MainThread]:   compute_region: None
+[0m23:41:28.013772 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m23:41:28.013840 [info ] [MainThread]:   gcs_bucket: None
+[0m23:41:28.013906 [info ] [MainThread]:   dataproc_batch: None
+[0m23:41:28.014140 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:41:28.064282 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m23:41:28.064530 [debug] [MainThread]: On debug: select 1 as id
+[0m23:41:28.064683 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:41:29.288912 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:6739899d-907b-4e11-b902-0c3070a9ca7c&page=queryresults
+[0m23:41:29.822967 [debug] [MainThread]: SQL status: OK in 0.533 seconds
+[0m23:41:30.286990 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m23:41:30.287771 [info ] [MainThread]: [32mAll checks passed![0m
+[0m23:41:30.293842 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.9068599, "process_in_blocks": "0", "process_kernel_time": 0.227665, "process_mem_max_rss": "228343808", "process_out_blocks": "0", "process_user_time": 0.779562}
+[0m23:41:30.294477 [debug] [MainThread]: Command `dbt debug` succeeded at 23:41:30.294379 after 2.91 seconds
+[0m23:41:30.294842 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m23:41:30.295211 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11cd85a70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ce33770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11cd906b0>]}
+[0m23:41:30.295686 [debug] [MainThread]: Flushing usage events
+[0m23:41:30.532935 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:42:09.024330 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce19d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfe79d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfe7890>]}
+
+
+============================== 23:42:09.026877 | 4ab482d2-ba77-4a01-8b1e-ea28fc3890c0 ==============================
+[0m23:42:09.026877 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:42:09.027113 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'warn_error': 'None', 'target_path': 'None', 'static_parser': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'no_print': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'fail_fast': 'False', 'quiet': 'False', 'invocation_command': 'dbt run', 'use_colors': 'True', 'cache_selected_only': 'False', 'printer_width': '80', 'version_check': 'True', 'log_cache_events': 'False', 'log_format': 'default', 'empty': 'False', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'profiles_dir': '/Users/izzyyang/.dbt', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs'}
+[0m23:42:09.606046 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2f8770>]}
+[0m23:42:09.623791 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11cf23bd0>]}
+[0m23:42:09.624006 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:42:09.677891 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m23:42:09.737497 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m23:42:09.737642 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m23:42:09.737725 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m23:42:09.752054 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11cf87750>]}
+[0m23:42:09.782534 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:42:09.783462 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:42:09.787818 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2e4140>]}
+[0m23:42:09.787980 [info ] [MainThread]: Found 4 models, 4 data tests, 2 sources, 549 macros
+[0m23:42:09.788098 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d4af3f0>]}
+[0m23:42:09.788744 [info ] [MainThread]: 
+[0m23:42:09.788859 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m23:42:09.788943 [info ] [MainThread]: 
+[0m23:42:09.789093 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m23:42:09.790335 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905'
+[0m23:42:09.790491 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:42:09.790616 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905'
+[0m23:42:09.790809 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:42:10.797796 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905, now list_kestra-sandbox-486905_hk_data_pipeline_staging)
+[0m23:42:10.798542 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:42:10.798933 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905, now list_kestra-sandbox-486905_hk_data_pipeline_mart)
+[0m23:42:10.799967 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:42:11.280455 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d4a3930>]}
+[0m23:42:11.281043 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:42:11.283884 [debug] [Thread-2 (]: Began running node model.hk_data_pipeline.stg_weather
+[0m23:42:11.284228 [debug] [Thread-1 (]: Began running node model.hk_data_pipeline.stg_air_quality
+[0m23:42:11.284647 [info ] [Thread-2 (]: 2 of 4 START sql view model hk_data_pipeline_staging.stg_weather ............... [RUN]
+[0m23:42:11.284973 [info ] [Thread-1 (]: 1 of 4 START sql view model hk_data_pipeline_staging.stg_air_quality ........... [RUN]
+[0m23:42:11.285288 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_mart, now model.hk_data_pipeline.stg_weather)
+[0m23:42:11.285516 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_staging, now model.hk_data_pipeline.stg_air_quality)
+[0m23:42:11.285756 [debug] [Thread-2 (]: Began compiling node model.hk_data_pipeline.stg_weather
+[0m23:42:11.285963 [debug] [Thread-1 (]: Began compiling node model.hk_data_pipeline.stg_air_quality
+[0m23:42:11.298099 [debug] [Thread-1 (]: Writing injected SQL for node "model.hk_data_pipeline.stg_air_quality"
+[0m23:42:11.300555 [debug] [Thread-2 (]: Writing injected SQL for node "model.hk_data_pipeline.stg_weather"
+[0m23:42:11.302124 [debug] [Thread-1 (]: Began executing node model.hk_data_pipeline.stg_air_quality
+[0m23:42:11.302439 [debug] [Thread-2 (]: Began executing node model.hk_data_pipeline.stg_weather
+[0m23:42:11.320719 [debug] [Thread-2 (]: Writing runtime sql for node "model.hk_data_pipeline.stg_weather"
+[0m23:42:11.321601 [debug] [Thread-1 (]: Writing runtime sql for node "model.hk_data_pipeline.stg_air_quality"
+[0m23:42:11.322194 [debug] [Thread-2 (]: On model.hk_data_pipeline.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.stg_weather"} */
+
+
+  create or replace view `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_weather`
+  OPTIONS()
+  as with source as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline`.`weather`
+),
+
+deduplicated as (
+    select *
+    from source
+    qualify row_number() over (partition by time order by ingested_at desc) = 1
+)
+
+select
+    cast(time                 as timestamp)  as time,
+    cast(temperature_2m       as float64)    as temperature_2m,
+    cast(relative_humidity_2m as float64)    as relative_humidity_2m,
+    cast(precipitation        as float64)    as precipitation,
+    cast(wind_speed_10m       as float64)    as wind_speed_10m,
+    cast(wind_direction_10m   as float64)    as wind_direction_10m,
+    cast(weather_code         as int64)      as weather_code,
+    cast(ingested_at          as timestamp)  as ingested_at
+from deduplicated;
+
+
+[0m23:42:11.322451 [debug] [Thread-1 (]: On model.hk_data_pipeline.stg_air_quality: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.stg_air_quality"} */
+
+
+  create or replace view `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_air_quality`
+  OPTIONS()
+  as with source as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline`.`air_quality`
+),
+
+deduplicated as (
+    select *
+    from source
+    qualify row_number() over (partition by time order by ingested_at desc) = 1
+)
+
+select
+    cast(time             as timestamp)  as time,
+    cast(pm10             as float64)    as pm10,
+    cast(pm2_5            as float64)    as pm2_5,
+    cast(carbon_monoxide  as float64)    as carbon_monoxide,
+    cast(nitrogen_dioxide as float64)    as nitrogen_dioxide,
+    cast(sulphur_dioxide  as float64)    as sulphur_dioxide,
+    cast(ozone            as float64)    as ozone,
+    cast(european_aqi     as int64)      as european_aqi,
+    cast(ingested_at      as timestamp)  as ingested_at
+from deduplicated;
+
+
+[0m23:42:11.322719 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:42:11.322878 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:42:12.102854 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:1a8e1ffa-cfbc-4317-a5c7-53e7aa5c5c5d&page=queryresults
+[0m23:42:12.191006 [debug] [Thread-2 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:9fa3dba4-51f6-41ab-92e0-4ee6d408aef4&page=queryresults
+[0m23:42:12.945767 [debug] [Thread-2 (]: SQL status: OK in 0.754 seconds
+[0m23:42:12.974510 [debug] [Thread-1 (]: SQL status: OK in 0.871 seconds
+[0m23:42:13.001693 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d631610>]}
+[0m23:42:13.001926 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d8e4730>]}
+[0m23:42:13.002257 [info ] [Thread-1 (]: 1 of 4 OK created sql view model hk_data_pipeline_staging.stg_air_quality ...... [[32mCREATE VIEW (0 processed)[0m in 1.72s]
+[0m23:42:13.002570 [info ] [Thread-2 (]: 2 of 4 OK created sql view model hk_data_pipeline_staging.stg_weather .......... [[32mCREATE VIEW (0 processed)[0m in 1.72s]
+[0m23:42:13.002842 [debug] [Thread-1 (]: Finished running node model.hk_data_pipeline.stg_air_quality
+[0m23:42:13.003040 [debug] [Thread-2 (]: Finished running node model.hk_data_pipeline.stg_weather
+[0m23:42:13.003375 [debug] [Thread-3 (]: Began running node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:42:13.003559 [debug] [Thread-4 (]: Began running node model.hk_data_pipeline.mart_daily_weather
+[0m23:42:13.003734 [info ] [Thread-3 (]: 3 of 4 START sql table model hk_data_pipeline_mart.mart_daily_air_quality ...... [RUN]
+[0m23:42:13.003942 [info ] [Thread-4 (]: 4 of 4 START sql table model hk_data_pipeline_mart.mart_daily_weather .......... [RUN]
+[0m23:42:13.004180 [debug] [Thread-3 (]: Acquiring new bigquery connection 'model.hk_data_pipeline.mart_daily_air_quality'
+[0m23:42:13.004358 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.hk_data_pipeline.mart_daily_weather'
+[0m23:42:13.004492 [debug] [Thread-3 (]: Began compiling node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:42:13.004618 [debug] [Thread-4 (]: Began compiling node model.hk_data_pipeline.mart_daily_weather
+[0m23:42:13.005853 [debug] [Thread-3 (]: Writing injected SQL for node "model.hk_data_pipeline.mart_daily_air_quality"
+[0m23:42:13.007146 [debug] [Thread-4 (]: Writing injected SQL for node "model.hk_data_pipeline.mart_daily_weather"
+[0m23:42:13.007839 [debug] [Thread-3 (]: Began executing node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:42:13.008030 [debug] [Thread-4 (]: Began executing node model.hk_data_pipeline.mart_daily_weather
+[0m23:42:13.012503 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m23:42:13.013371 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m23:42:13.446308 [debug] [Thread-4 (]: Writing runtime sql for node "model.hk_data_pipeline.mart_daily_weather"
+[0m23:42:13.447176 [debug] [Thread-4 (]: On model.hk_data_pipeline.mart_daily_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.mart_daily_weather"} */
+
+  
+    
+
+    create or replace table `kestra-sandbox-486905`.`hk_data_pipeline_mart`.`mart_daily_weather`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      with weather as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_weather`
+)
+
+select
+    date(time)                      as date,
+    avg(temperature_2m)             as avg_temp_c,
+    max(temperature_2m)             as max_temp_c,
+    min(temperature_2m)             as min_temp_c,
+    avg(relative_humidity_2m)       as avg_humidity_pct,
+    sum(precipitation)              as total_precipitation_mm,
+    avg(wind_speed_10m)             as avg_wind_speed_kmh,
+    max(wind_speed_10m)             as max_wind_speed_kmh
+from weather
+group by 1
+order by 1 desc
+    );
+  
+[0m23:42:13.448021 [debug] [Thread-3 (]: Writing runtime sql for node "model.hk_data_pipeline.mart_daily_air_quality"
+[0m23:42:13.449085 [debug] [Thread-3 (]: On model.hk_data_pipeline.mart_daily_air_quality: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "model.hk_data_pipeline.mart_daily_air_quality"} */
+
+  
+    
+
+    create or replace table `kestra-sandbox-486905`.`hk_data_pipeline_mart`.`mart_daily_air_quality`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      with air_quality as (
+    select * from `kestra-sandbox-486905`.`hk_data_pipeline_staging`.`stg_air_quality`
+)
+
+select
+    date(time)              as date,
+    avg(pm10)               as avg_pm10,
+    max(pm10)               as max_pm10,
+    avg(pm2_5)              as avg_pm2_5,
+    max(pm2_5)              as max_pm2_5,
+    avg(nitrogen_dioxide)   as avg_no2,
+    max(nitrogen_dioxide)   as max_no2,
+    avg(ozone)              as avg_o3,
+    max(ozone)              as max_o3,
+    avg(european_aqi)       as avg_aqi,
+    max(european_aqi)       as max_aqi
+from air_quality
+group by 1
+order by 1 desc
+    );
+  
+[0m23:42:14.404063 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:b3cee305-3406-4af0-be58-afcd3f574ded&page=queryresults
+[0m23:42:14.487381 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:5eacae8a-6640-4ca1-b7cb-d4960552aa3e&page=queryresults
+[0m23:42:16.084610 [debug] [Thread-4 (]: SQL status: OK in 1.680 seconds
+[0m23:42:16.354386 [debug] [Thread-3 (]: SQL status: OK in 1.866 seconds
+[0m23:42:16.413918 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d660230>]}
+[0m23:42:16.415063 [info ] [Thread-4 (]: 4 of 4 OK created sql table model hk_data_pipeline_mart.mart_daily_weather ..... [[32mCREATE TABLE (4.0 rows, 7.9 KiB processed)[0m in 3.41s]
+[0m23:42:16.415607 [debug] [Thread-4 (]: Finished running node model.hk_data_pipeline.mart_daily_weather
+[0m23:42:16.747156 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4ab482d2-ba77-4a01-8b1e-ea28fc3890c0', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d9b9b50>]}
+[0m23:42:16.747465 [info ] [Thread-3 (]: 3 of 4 OK created sql table model hk_data_pipeline_mart.mart_daily_air_quality . [[32mCREATE TABLE (7.0 rows, 9.2 KiB processed)[0m in 3.74s]
+[0m23:42:16.747680 [debug] [Thread-3 (]: Finished running node model.hk_data_pipeline.mart_daily_air_quality
+[0m23:42:16.748279 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:42:16.748529 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:42:16.748641 [debug] [MainThread]: Connection 'model.hk_data_pipeline.stg_air_quality' was properly closed.
+[0m23:42:16.748727 [debug] [MainThread]: Connection 'model.hk_data_pipeline.stg_weather' was properly closed.
+[0m23:42:16.748806 [debug] [MainThread]: Connection 'model.hk_data_pipeline.mart_daily_air_quality' was properly closed.
+[0m23:42:16.748885 [debug] [MainThread]: Connection 'model.hk_data_pipeline.mart_daily_weather' was properly closed.
+[0m23:42:16.749025 [info ] [MainThread]: 
+[0m23:42:16.749132 [info ] [MainThread]: Finished running 2 table models, 2 view models in 0 hours 0 minutes and 6.96 seconds (6.96s).
+[0m23:42:16.749498 [debug] [MainThread]: Command end result
+[0m23:42:16.761462 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:42:16.762329 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:42:16.764526 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/run_results.json
+[0m23:42:16.764639 [info ] [MainThread]: 
+[0m23:42:16.764759 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:42:16.764843 [info ] [MainThread]: 
+[0m23:42:16.764942 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m23:42:16.767059 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 7.7690125, "process_in_blocks": "0", "process_kernel_time": 0.258376, "process_mem_max_rss": "237535232", "process_out_blocks": "0", "process_user_time": 1.076889}
+[0m23:42:16.767224 [debug] [MainThread]: Command `dbt run` succeeded at 23:42:16.767196 after 7.77 seconds
+[0m23:42:16.767349 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e0a0ad0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f57c40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11d15f590>]}
+[0m23:42:16.767459 [debug] [MainThread]: Flushing usage events
+[0m23:42:16.858571 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:42:29.964899 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a5d9d30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b7a79d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b7a7890>]}
+
+
+============================== 23:42:29.967740 | a5554054-f259-455d-b439-6576804234d9 ==============================
+[0m23:42:29.967740 [info ] [MainThread]: Running with dbt=1.11.11
+[0m23:42:29.967993 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt test', 'fail_fast': 'False', 'static_parser': 'True', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'version_check': 'True', 'use_colors': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'profiles_dir': '/Users/izzyyang/.dbt', 'log_cache_events': 'False', 'target_path': 'None', 'no_print': 'None', 'partial_parse': 'True', 'printer_width': '80', 'warn_error': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': '/Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/logs', 'write_json': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'debug': 'False', 'indirect_selection': 'eager'}
+[0m23:42:30.372316 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a5554054-f259-455d-b439-6576804234d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aab8770>]}
+[0m23:42:30.390304 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a5554054-f259-455d-b439-6576804234d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a64fbd0>]}
+[0m23:42:30.390508 [info ] [MainThread]: Registered adapter: bigquery=1.11.1
+[0m23:42:30.444286 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m23:42:30.500985 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m23:42:30.501142 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m23:42:30.501226 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m23:42:30.516203 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a5554054-f259-455d-b439-6576804234d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11a6b7750>]}
+[0m23:42:30.549053 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:42:30.549910 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:42:30.559365 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a5554054-f259-455d-b439-6576804234d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ad936b0>]}
+[0m23:42:30.559540 [info ] [MainThread]: Found 4 models, 4 data tests, 2 sources, 549 macros
+[0m23:42:30.559653 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a5554054-f259-455d-b439-6576804234d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11adb2dd0>]}
+[0m23:42:30.560295 [info ] [MainThread]: 
+[0m23:42:30.560417 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m23:42:30.560502 [info ] [MainThread]: 
+[0m23:42:30.560658 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m23:42:30.561930 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905_hk_data_pipeline_staging'
+[0m23:42:30.562124 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_kestra-sandbox-486905_hk_data_pipeline_mart'
+[0m23:42:30.562217 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:42:30.562308 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:42:31.404400 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a5554054-f259-455d-b439-6576804234d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11abcf930>]}
+[0m23:42:31.405517 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:42:31.409674 [debug] [Thread-4 (]: Began running node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:42:31.410129 [debug] [Thread-1 (]: Began running node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:42:31.410416 [debug] [Thread-3 (]: Began running node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:42:31.410669 [debug] [Thread-2 (]: Began running node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:42:31.410981 [info ] [Thread-4 (]: 4 of 4 START test source_unique_raw_weather_time ............................... [RUN]
+[0m23:42:31.411344 [info ] [Thread-1 (]: 1 of 4 START test source_not_null_raw_air_quality_time ......................... [RUN]
+[0m23:42:31.411645 [info ] [Thread-3 (]: 3 of 4 START test source_unique_raw_air_quality_time ........................... [RUN]
+[0m23:42:31.411908 [info ] [Thread-2 (]: 2 of 4 START test source_not_null_raw_weather_time ............................. [RUN]
+[0m23:42:31.412365 [debug] [Thread-4 (]: Acquiring new bigquery connection 'test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da'
+[0m23:42:31.412663 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_staging, now test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea)
+[0m23:42:31.413540 [debug] [Thread-3 (]: Acquiring new bigquery connection 'test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0'
+[0m23:42:31.413805 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_kestra-sandbox-486905_hk_data_pipeline_mart, now test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a)
+[0m23:42:31.414062 [debug] [Thread-4 (]: Began compiling node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:42:31.414293 [debug] [Thread-1 (]: Began compiling node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:42:31.414511 [debug] [Thread-3 (]: Began compiling node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:42:31.414747 [debug] [Thread-2 (]: Began compiling node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:42:31.437617 [debug] [Thread-1 (]: Writing injected SQL for node "test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea"
+[0m23:42:31.439818 [debug] [Thread-3 (]: Writing injected SQL for node "test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0"
+[0m23:42:31.433402 [debug] [Thread-4 (]: Writing injected SQL for node "test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da"
+[0m23:42:31.442415 [debug] [Thread-2 (]: Writing injected SQL for node "test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a"
+[0m23:42:31.443248 [debug] [Thread-1 (]: Began executing node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:42:31.443438 [debug] [Thread-3 (]: Began executing node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:42:31.443601 [debug] [Thread-4 (]: Began executing node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:42:31.443733 [debug] [Thread-2 (]: Began executing node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:42:31.453983 [debug] [Thread-1 (]: Writing runtime sql for node "test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea"
+[0m23:42:31.455104 [debug] [Thread-3 (]: Writing runtime sql for node "test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0"
+[0m23:42:31.455953 [debug] [Thread-4 (]: Writing runtime sql for node "test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da"
+[0m23:42:31.456766 [debug] [Thread-2 (]: Writing runtime sql for node "test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a"
+[0m23:42:31.457172 [debug] [Thread-3 (]: On test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select time as unique_field
+  from `kestra-sandbox-486905`.`hk_data_pipeline`.`air_quality`
+  where time is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:42:31.457426 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m23:42:31.458148 [debug] [Thread-1 (]: On test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select time
+from `kestra-sandbox-486905`.`hk_data_pipeline`.`air_quality`
+where time is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:42:31.458369 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:42:31.458950 [debug] [Thread-4 (]: On test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select time as unique_field
+  from `kestra-sandbox-486905`.`hk_data_pipeline`.`weather`
+  where time is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:42:31.459160 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m23:42:31.459574 [debug] [Thread-2 (]: On test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "hk_data_pipeline", "target_name": "dev", "node_id": "test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select time
+from `kestra-sandbox-486905`.`hk_data_pipeline`.`weather`
+where time is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:42:31.459922 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:42:32.058207 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:b2f1faae-ed04-40cd-857f-c4233b5544ac&page=queryresults
+[0m23:42:32.088104 [debug] [Thread-2 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:1b476591-ea07-43c0-8197-43057c5ce43d&page=queryresults
+[0m23:42:32.090460 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:29499bbf-d8dc-4076-bc89-4a73ee8f0074&page=queryresults
+[0m23:42:32.102488 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=kestra-sandbox-486905&j=bq:asia-east2:4400c96a-9eb9-43a6-9dc4-c13ce3810aee&page=queryresults
+[0m23:42:32.425376 [debug] [Thread-4 (]: SQL status: OK in 0.322 seconds
+[0m23:42:32.429121 [debug] [Thread-1 (]: SQL status: OK in 0.338 seconds
+[0m23:42:32.433066 [debug] [Thread-3 (]: SQL status: OK in 0.374 seconds
+[0m23:42:32.480266 [debug] [Thread-2 (]: SQL status: OK in 0.392 seconds
+[0m23:42:33.123295 [info ] [Thread-2 (]: 2 of 4 PASS source_not_null_raw_weather_time ................................... [[32mPASS[0m in 1.71s]
+[0m23:42:33.124069 [debug] [Thread-2 (]: Finished running node test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a
+[0m23:42:33.139735 [warn ] [Thread-4 (]: 4 of 4 WARN 24 source_unique_raw_weather_time .................................. [[33mWARN 24[0m in 1.73s]
+[0m23:42:33.141848 [debug] [Thread-4 (]: Finished running node test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da
+[0m23:42:33.143157 [info ] [Thread-3 (]: 3 of 4 PASS source_unique_raw_air_quality_time ................................. [[32mPASS[0m in 1.73s]
+[0m23:42:33.143869 [debug] [Thread-3 (]: Finished running node test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0
+[0m23:42:33.145474 [info ] [Thread-1 (]: 1 of 4 PASS source_not_null_raw_air_quality_time ............................... [[32mPASS[0m in 1.73s]
+[0m23:42:33.146203 [debug] [Thread-1 (]: Finished running node test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea
+[0m23:42:33.147579 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:42:33.148045 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:42:33.148240 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_not_null_raw_air_quality_time.63cdd7cdea' was properly closed.
+[0m23:42:33.148411 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_not_null_raw_weather_time.c1eab0036a' was properly closed.
+[0m23:42:33.148563 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_unique_raw_weather_time.4d34a042da' was properly closed.
+[0m23:42:33.148718 [debug] [MainThread]: Connection 'test.hk_data_pipeline.source_unique_raw_air_quality_time.ef27a2c2b0' was properly closed.
+[0m23:42:33.148913 [info ] [MainThread]: 
+[0m23:42:33.149132 [info ] [MainThread]: Finished running 4 data tests in 0 hours 0 minutes and 2.59 seconds (2.59s).
+[0m23:42:33.149878 [debug] [MainThread]: Command end result
+[0m23:42:33.172325 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/manifest.json
+[0m23:42:33.173584 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/semantic_manifest.json
+[0m23:42:33.176884 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/izzyyang/Desktop/DE Career/hk-data-pipeline/dbt/target/run_results.json
+[0m23:42:33.177034 [info ] [MainThread]: 
+[0m23:42:33.177188 [info ] [MainThread]: [33mCompleted with 1 warning:[0m
+[0m23:42:33.177301 [info ] [MainThread]: 
+[0m23:42:33.177446 [warn ] [MainThread]: [33mWarning in test source_unique_raw_weather_time (models/staging/sources.yml)[0m
+[0m23:42:33.177578 [warn ] [MainThread]: Got 24 results, configured to warn if != 0
+[0m23:42:33.177676 [info ] [MainThread]: 
+[0m23:42:33.177799 [info ] [MainThread]:   compiled code at target/compiled/hk_data_pipeline/models/staging/sources.yml/source_unique_raw_weather_time.sql
+[0m23:42:33.177898 [info ] [MainThread]: 
+[0m23:42:33.178021 [info ] [MainThread]: Done. PASS=3 WARN=1 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
+[0m23:42:33.180742 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 3.2406898, "process_in_blocks": "0", "process_kernel_time": 0.212705, "process_mem_max_rss": "238927872", "process_out_blocks": "0", "process_user_time": 1.046806}
+[0m23:42:33.180972 [debug] [MainThread]: Command `dbt test` succeeded at 23:42:33.180933 after 3.24 seconds
+[0m23:42:33.181132 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b63ab10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ad76990>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11ad75de0>]}
+[0m23:42:33.181276 [debug] [MainThread]: Flushing usage events
+[0m23:42:33.258589 [debug] [MainThread]: An error was encountered while trying to flush usage events

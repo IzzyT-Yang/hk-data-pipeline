@@ -1,0 +1,86 @@
+id: daily-pipeline
+namespace: hk_data_pipeline
+
+variables:
+  date: "{{ execution.startDate | dateAdd(-1, 'DAYS') | date('yyyy-MM-dd') }}"
+  repo: https://github.com/IzzyT-Yang/hk-data-pipeline
+  python_image: python:3.13-slim
+  dbt_image: ghcr.io/dbt-labs/dbt-bigquery:1.11.1
+
+triggers:
+  - id: daily_schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 8 * * *"
+
+tasks:
+  - id: ingest
+    type: io.kestra.plugin.core.flow.Parallel
+    tasks:
+      - id: ingest_weather
+        type: io.kestra.plugin.scripts.python.Commands
+        docker:
+          image: "{{ vars.python_image }}"
+        beforeCommands:
+          - git clone {{ vars.repo }} /app -q
+          - pip install -r /app/ingestion/requirements.txt -q
+          - echo $GCP_KEYFILE_JSON > /tmp/keyfile.json
+        commands:
+          - python /app/ingestion/weather_report.py --start-date {{ vars.date }} --end-date {{ vars.date }}
+        env:
+          GCP_KEYFILE_JSON: "{{ kv('GCP_SERVICE_ACCOUNT_KEY') }}"
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/keyfile.json
+
+      - id: ingest_air_quality
+        type: io.kestra.plugin.scripts.python.Commands
+        docker:
+          image: "{{ vars.python_image }}"
+        beforeCommands:
+          - git clone {{ vars.repo }} /app -q
+          - pip install -r /app/ingestion/requirements.txt -q
+          - echo $GCP_KEYFILE_JSON > /tmp/keyfile.json
+        commands:
+          - python /app/ingestion/air_quality.py --start-date {{ vars.date }} --end-date {{ vars.date }}
+        env:
+          GCP_KEYFILE_JSON: "{{ kv('GCP_SERVICE_ACCOUNT_KEY') }}"
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/keyfile.json
+
+  - id: load_to_bq
+    type: io.kestra.plugin.scripts.python.Commands
+    docker:
+      image: "{{ vars.python_image }}"
+    beforeCommands:
+      - git clone {{ vars.repo }} /app -q
+      - pip install -r /app/ingestion/requirements.txt -q
+      - echo $GCP_KEYFILE_JSON > /tmp/keyfile.json
+    commands:
+      - python /app/ingestion/gcs_to_bq.py --start-date {{ vars.date }} --end-date {{ vars.date }}
+    env:
+      GCP_KEYFILE_JSON: "{{ kv('GCP_SERVICE_ACCOUNT_KEY') }}"
+      GOOGLE_APPLICATION_CREDENTIALS: /tmp/keyfile.json
+
+  - id: dbt_run
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    docker:
+      image: "{{ vars.dbt_image }}"
+    beforeCommands:
+      - git clone {{ vars.repo }} /app -q
+      - echo $GCP_KEYFILE_JSON > /tmp/keyfile.json
+      - |
+        cat > /app/dbt/profiles.yml << 'EOF'
+        hk_data_pipeline:
+          target: prod
+          outputs:
+            prod:
+              type: bigquery
+              method: service-account
+              project: kestra-sandbox-486905
+              dataset: hk_data_pipeline
+              location: asia-east2
+              keyfile: /tmp/keyfile.json
+              threads: 4
+              timeout_seconds: 300
+        EOF
+    commands:
+      - dbt run --project-dir /app/dbt --profiles-dir /app/dbt
+    env:
+      GCP_KEYFILE_JSON: "{{ kv('GCP_SERVICE_ACCOUNT_KEY') }}"

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+dbt/profiles.yml
+dbt/target/
+dbt/dbt_packages/
+dbt/.user.yml

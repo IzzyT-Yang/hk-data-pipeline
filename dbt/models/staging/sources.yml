@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: raw
+    database: kestra-sandbox-486905
+    schema: hk_data_pipeline
+    tables:
+      - name: weather
+        description: Hourly weather data from Open-Meteo
+        columns:
+          - name: time
+            tests:
+              - unique:
+                  config:
+                    severity: warn
+              - not_null:
+                  config:
+                    severity: warn
+
+      - name: air_quality
+        description: Hourly air quality data from Open-Meteo
+        columns:
+          - name: time
+            tests:
+              - unique:
+                  config:
+                    severity: warn
+              - not_null:
+                  config:
+                    severity: warn
