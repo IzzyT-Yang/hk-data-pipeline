@@ -23,10 +23,26 @@ jobs:
       - name: Write GCP credentials
         run: echo '${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}' > /tmp/keyfile.json
 
+      - name: Write dbt profiles
+        working-directory: dbt
+        run: |
+          cat > profiles.yml << 'EOF'
+          hk_data_pipeline:
+            target: prod
+            outputs:
+              prod:
+                type: bigquery
+                method: service-account
+                project: kestra-sandbox-486905
+                dataset: hk_data_pipeline
+                location: asia-east2
+                keyfile: /tmp/keyfile.json
+                threads: 4
+                timeout_seconds: 300
+          EOF
+
       - name: dbt run + test
         working-directory: dbt
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: /tmp/keyfile.json
         run: |
           dbt run --profiles-dir . --project-dir .
           dbt test --profiles-dir . --project-dir .
