@@ -2,7 +2,7 @@ import json
 import argparse
 from datetime import datetime, timezone, timedelta
 from google.cloud import storage, bigquery
-from utils import GCS_BUCKET
+from utils import GCS_BUCKET, get_credentials
 
 BQ_DATASET = "hk_data_pipeline"
 
@@ -41,7 +41,7 @@ def columnar_to_rows(data: dict, ingested_at: str) -> list[dict]:
 
 def read_gcs_json(bucket_name: str, blob_name: str) -> dict:
     # Downloads and parses a JSON file from GCS.
-    client = storage.Client()
+    client = storage.Client(credentials=get_credentials())
     blob = client.bucket(bucket_name).blob(blob_name)
     return json.loads(blob.download_as_text())
 
@@ -67,8 +67,8 @@ def load_to_bq(bq: bigquery.Client, table_id: str, rows: list[dict], schema: lis
 
 
 def process_source(source: str, start: str, end: str):
-    # Iterates over each day in the date range, reads the corresponding GCS file, and loads it to BQ.
-    bq = bigquery.Client()
+    # Reads all days in the date range, batches into a single BQ load job.
+    bq = bigquery.Client(credentials=get_credentials())
     ingested_at = datetime.now(timezone.utc).isoformat()
 
     if source == "weather":
@@ -82,17 +82,20 @@ def process_source(source: str, start: str, end: str):
     current = datetime.strptime(start, "%Y-%m-%d").date()
     end_date = datetime.strptime(end, "%Y-%m-%d").date()
 
+    all_rows = []
     while current <= end_date:
         day_str = str(current)
         blob_name = f"{prefix}/{day_str}.json"
-        print(f"  {day_str}...", end=" ", flush=True)
-
+        print(f"  Reading {day_str}...", end=" ", flush=True)
         data = read_gcs_json(GCS_BUCKET, blob_name)
         rows = columnar_to_rows(data, ingested_at)
-        load_to_bq(bq, table_id, rows, schema)
-        print(f"{len(rows)} rows loaded to {table_id}")
-
+        all_rows.extend(rows)
+        print(f"{len(rows)} rows")
         current += timedelta(days=1)
+
+    print(f"  Loading {len(all_rows)} rows to {table_id}...", end=" ", flush=True)
+    load_to_bq(bq, table_id, all_rows, schema)
+    print("done")
 
 
 if __name__ == "__main__":
