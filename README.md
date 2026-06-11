@@ -93,7 +93,7 @@ The workflow (`.github/workflows/dbt_test.yml`):
 
 ## Dashboard
 
-[View Live Dashboard](https://datastudio.google.com/reporting/967f5202-3002-48b0-990b-cb67b4eabd59)
+[View Live Dashboard](https://datastudio.google.com/s/uTsaEyPnFqY)
 
 ![HK Air Quality Data Analysis](dashboard/HK%20Air%20Quality%20Data%20Analysis.png)
 
