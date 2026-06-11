@@ -80,6 +80,23 @@ mart.mart_daily_air_quality                      (daily AQI aggregations)
 mart.mart_daily_combined                         (joined weather + air quality)
 ```
 
+## CI/CD
+
+dbt tests run automatically on every pull request that touches the `dbt/` directory via GitHub Actions.
+
+The workflow (`.github/workflows/dbt_test.yml`):
+1. Installs `dbt-bigquery`
+2. Writes GCP credentials from repository secret `GCP_SERVICE_ACCOUNT_KEY`
+3. Runs `dbt run` + `dbt test` against the production BigQuery dataset
+
+![CI passing](dashboard/ci_passing.png)
+
+## Dashboard
+
+[View Live Dashboard](https://datastudio.google.com/reporting/967f5202-3002-48b0-990b-cb67b4eabd59)
+
+![HK Air Quality Data Analysis](dashboard/HK%20Air%20Quality%20Data%20Analysis.png)
+
 ## Setup
 
 ### Prerequisites
@@ -138,20 +155,3 @@ In the Kestra UI: **Namespaces → hk_data_pipeline → KV Store**
 
 - **Daily (automated)**: schedule trigger runs at 08:00 HKT
 - **Manual / backfill**: trigger `daily_pipeline` with custom `start_date` and `end_date`; toggle `run_ingest`, `run_load`, `run_transform` as needed
-
-## CI/CD
-
-dbt tests run automatically on every pull request that touches the `dbt/` directory via GitHub Actions.
-
-The workflow (`.github/workflows/dbt_test.yml`):
-1. Installs `dbt-bigquery`
-2. Writes GCP credentials from repository secret `GCP_SERVICE_ACCOUNT_KEY`
-3. Runs `dbt run` + `dbt test` against the production BigQuery dataset
-
-![CI passing](dashboard/ci_passing.png)
-
-## Dashboard
-
-[View Live Dashboard](https://datastudio.google.com/reporting/967f5202-3002-48b0-990b-cb67b4eabd59)
-
-![HK Air Quality Data Analysis](dashboard/HK%20Air%20Quality%20Data%20Analysis.png)
