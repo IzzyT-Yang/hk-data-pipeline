@@ -12,3 +12,9 @@ dbt/target/
 dbt/logs/
 dbt/dbt_packages/
 dbt/.user.yml
+
+# GCP service account keys — never commit
+secrets/
+**/gcp-sa-key.json
+*service-account*.json
+*-00297a6f337c.json

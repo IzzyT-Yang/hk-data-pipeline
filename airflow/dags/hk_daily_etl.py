@@ -3,7 +3,6 @@ HK daily ETL — Airflow equivalent of orchestration/daily_etl.yml.
 
 Requires:
   - apache-airflow-providers-docker
-  - Docker socket available to the Airflow worker (same as Kestra today)
   - Airflow Variable: GCP_SERVICE_ACCOUNT_KEY (service account JSON string)
 
 Trigger with config / params for backfill, e.g.:
@@ -25,11 +24,13 @@ GCP_PROJECT = "kestra-sandbox-486905"
 INGESTION_IMAGE = f"asia-east2-docker.pkg.dev/{GCP_PROJECT}/hk-pipeline/ingestion:latest"
 DBT_IMAGE = f"asia-east2-docker.pkg.dev/{GCP_PROJECT}/hk-pipeline/dbt:latest"
 
-# Same as Kestra: worker talks to local Docker daemon to pull AR images and run containers.
-DOCKER_CONN_ID = "docker_default"
+# Use docker_url only. A Docker Connection without registry username makes
+# DockerOperator try registry login and fail with "No Docker Registry username provided."
 
+# | tojson is required: with render_template_as_native_obj=True, a JSON Variable
+# becomes a dict and str(dict) uses single quotes, which breaks utils.get_credentials().
 COMMON_ENV = {
-    "GOOGLE_APPLICATION_CREDENTIALS_JSON": "{{ var.value.GCP_SERVICE_ACCOUNT_KEY }}",
+    "GOOGLE_APPLICATION_CREDENTIALS_JSON": "{{ var.value.GCP_SERVICE_ACCOUNT_KEY | tojson }}",
 }
 
 START_DATE = "{{ params.start_date or ds }}"
@@ -79,6 +80,7 @@ with DAG(
             api_version="auto",
             auto_remove="success",
             docker_url="unix://var/run/docker.sock",
+            mount_tmp_dir=False,
             network_mode="bridge",
             command=[
                 "python",
@@ -89,7 +91,6 @@ with DAG(
                 END_DATE,
             ],
             environment=COMMON_ENV,
-            docker_conn_id=DOCKER_CONN_ID,
         )
         DockerOperator(
             task_id="air_quality",
@@ -97,6 +98,7 @@ with DAG(
             api_version="auto",
             auto_remove="success",
             docker_url="unix://var/run/docker.sock",
+            mount_tmp_dir=False,
             network_mode="bridge",
             command=[
                 "python",
@@ -107,7 +109,6 @@ with DAG(
                 END_DATE,
             ],
             environment=COMMON_ENV,
-            docker_conn_id=DOCKER_CONN_ID,
         )
 
     join_ingest = EmptyOperator(
@@ -130,6 +131,7 @@ with DAG(
             api_version="auto",
             auto_remove="success",
             docker_url="unix://var/run/docker.sock",
+            mount_tmp_dir=False,
             network_mode="bridge",
             command=[
                 "python",
@@ -142,7 +144,6 @@ with DAG(
                 END_DATE,
             ],
             environment=COMMON_ENV,
-            docker_conn_id=DOCKER_CONN_ID,
         )
         DockerOperator(
             task_id="air_quality",
@@ -150,6 +151,7 @@ with DAG(
             api_version="auto",
             auto_remove="success",
             docker_url="unix://var/run/docker.sock",
+            mount_tmp_dir=False,
             network_mode="bridge",
             command=[
                 "python",
@@ -162,7 +164,6 @@ with DAG(
                 END_DATE,
             ],
             environment=COMMON_ENV,
-            docker_conn_id=DOCKER_CONN_ID,
         )
 
     join_load = EmptyOperator(
@@ -184,6 +185,7 @@ with DAG(
         api_version="auto",
         auto_remove="success",
         docker_url="unix://var/run/docker.sock",
+        mount_tmp_dir=False,
         network_mode="bridge",
         command=(
             "python3 -c \"import os; open('/tmp/keyfile.json','w').write("
@@ -193,7 +195,6 @@ with DAG(
             "\"end_date\": \"{{ params.end_date or ds }}\"}'"
         ),
         environment=COMMON_ENV,
-        docker_conn_id=DOCKER_CONN_ID,
     )
 
     join_transform = EmptyOperator(

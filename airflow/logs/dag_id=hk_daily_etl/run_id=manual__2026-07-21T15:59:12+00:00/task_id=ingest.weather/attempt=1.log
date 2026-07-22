@@ -1,0 +1,188 @@
+[2026-07-21T15:59:19.521+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T15:59:19.534+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: hk_daily_etl.ingest.weather manual__2026-07-21T15:59:12+00:00 [queued]>
+[2026-07-21T15:59:19.539+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: hk_daily_etl.ingest.weather manual__2026-07-21T15:59:12+00:00 [queued]>
+[2026-07-21T15:59:19.540+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2026-07-21T15:59:19.546+0000] {taskinstance.py:2889} INFO - Executing <Task(DockerOperator): ingest.weather> on 2026-07-21 15:59:12+00:00
+[2026-07-21T15:59:19.552+0000] {standard_task_runner.py:72} INFO - Started process 4457 to run task
+[2026-07-21T15:59:19.557+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'hk_daily_etl', 'ingest.weather', 'manual__2026-07-21T15:59:12+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/hk_daily_etl.py', '--cfg-path', '/tmp/tmpdxqwp8x3']
+[2026-07-21T15:59:19.561+0000] {standard_task_runner.py:105} INFO - Job 25: Subtask ingest.weather
+[2026-07-21T15:59:19.587+0000] {task_command.py:467} INFO - Running <TaskInstance: hk_daily_etl.ingest.weather manual__2026-07-21T15:59:12+00:00 [running]> on host c8724559063f
+[2026-07-21T15:59:19.653+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='hk_daily_etl' AIRFLOW_CTX_TASK_ID='ingest.weather' AIRFLOW_CTX_EXECUTION_DATE='2026-07-21T15:59:12+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-21T15:59:12+00:00'
+[2026-07-21T15:59:19.654+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-07-21T15:59:19.740+0000] {docker.py:367} INFO - Starting docker container from image asia-east2-docker.pkg.dev/kestra-sandbox-486905/hk-pipeline/ingestion:latest
+[2026-07-21T15:59:20.261+0000] {docker.py:438} INFO - Fetching weather: 2026-07-01 → 2026-07-07
+[2026-07-21T15:59:20.262+0000] {docker.py:438} INFO -   2026-07-01...
+[2026-07-21T16:00:00.134+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:00.147+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+[2026-07-21T16:00:00.149+0000] {docker.py:438} INFO -     self._validate_conn(conn)
+[2026-07-21T16:00:00.149+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~^^^^^^
+[2026-07-21T16:00:00.150+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 1106, in _validate_conn
+[2026-07-21T16:00:00.150+0000] {docker.py:438} INFO -     conn.connect()
+[2026-07-21T16:00:00.150+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~^^
+[2026-07-21T16:00:00.150+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connection.py", line 796, in connect
+[2026-07-21T16:00:00.150+0000] {docker.py:438} INFO -     sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+[2026-07-21T16:00:00.151+0000] {docker.py:438} INFO -         sock=sock,
+[2026-07-21T16:00:00.151+0000] {docker.py:438} INFO -     ...<14 lines>...
+[2026-07-21T16:00:00.151+0000] {docker.py:438} INFO -         assert_fingerprint=self.assert_fingerprint,
+[2026-07-21T16:00:00.151+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:00.152+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+[2026-07-21T16:00:00.152+0000] {docker.py:438} INFO -     ssl_sock = ssl_wrap_socket(
+[2026-07-21T16:00:00.152+0000] {docker.py:438} INFO -         sock=sock,
+[2026-07-21T16:00:00.152+0000] {docker.py:438} INFO -     ...<8 lines>...
+[2026-07-21T16:00:00.152+0000] {docker.py:438} INFO -         tls_in_tls=tls_in_tls,
+[2026-07-21T16:00:00.153+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:00.153+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 433, in ssl_wrap_socket
+[2026-07-21T16:00:00.153+0000] {docker.py:438} INFO -     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+[2026-07-21T16:00:00.154+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/util/ssl_.py", line 477, in _ssl_wrap_socket_impl
+[2026-07-21T16:00:00.154+0000] {docker.py:438} INFO -     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+[2026-07-21T16:00:00.155+0000] {docker.py:438} INFO -            ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:00.155+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/ssl.py", line 455, in wrap_socket
+[2026-07-21T16:00:00.156+0000] {docker.py:438} INFO -     return self.sslsocket_class._create(
+[2026-07-21T16:00:00.156+0000] {docker.py:438} INFO -            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+[2026-07-21T16:00:00.157+0000] {docker.py:438} INFO -         sock=sock,
+[2026-07-21T16:00:00.157+0000] {docker.py:438} INFO -         ^^^^^^^^^^
+[2026-07-21T16:00:00.157+0000] {docker.py:438} INFO -     ...<5 lines>...
+[2026-07-21T16:00:00.157+0000] {docker.py:438} INFO -         session=session
+[2026-07-21T16:00:00.157+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^^^^
+[2026-07-21T16:00:00.157+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:00.157+0000] {docker.py:438} INFO -     ^
+[2026-07-21T16:00:00.158+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/ssl.py", line 1076, in _create
+[2026-07-21T16:00:00.158+0000] {docker.py:438} INFO -     self.do_handshake()
+[2026-07-21T16:00:00.160+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~^^
+[2026-07-21T16:00:00.161+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/ssl.py", line 1372, in do_handshake
+[2026-07-21T16:00:00.163+0000] {docker.py:438} INFO -     self._sslobj.do_handshake()
+[2026-07-21T16:00:00.163+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+[2026-07-21T16:00:00.164+0000] {docker.py:438} INFO - ssl.SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+[2026-07-21T16:00:00.164+0000] {docker.py:438} INFO - During handling of the above exception, another exception occurred:
+[2026-07-21T16:00:00.164+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:00.165+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:00.165+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+[2026-07-21T16:00:00.166+0000] {docker.py:438} INFO -     response = self._make_request(
+[2026-07-21T16:00:00.166+0000] {docker.py:438} INFO -         conn,
+[2026-07-21T16:00:00.166+0000] {docker.py:438} INFO -     ...<10 lines>...
+[2026-07-21T16:00:00.166+0000] {docker.py:438} INFO -         **response_kw,
+[2026-07-21T16:00:00.166+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO -     raise new_e
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO - urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO - The above exception was the direct cause of the following exception:
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.13/site-packages/requests/adapters.py", line 486, in send
+[2026-07-21T16:00:00.167+0000] {docker.py:438} INFO -     resp = conn.urlopen(
+[2026-07-21T16:00:00.168+0000] {docker.py:438} INFO -         method=request.method,
+[2026-07-21T16:00:00.168+0000] {docker.py:438} INFO -     ...<9 lines>...
+[2026-07-21T16:00:00.168+0000] {docker.py:438} INFO -         chunked=chunked,
+[2026-07-21T16:00:00.168+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:00.168+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+[2026-07-21T16:00:00.168+0000] {docker.py:438} INFO -     retries = retries.increment(
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO -         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/util/retry.py", line 543, in increment
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO -     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO -     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO - urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='archive-api.open-meteo.com', port=443): Max retries exceeded with url: /v1/archive?latitude=22.3193&longitude=114.1694&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation%2Cwind_speed_10m%2Cwind_direction_10m%2Cweather_code&timezone=Asia%2FHong_Kong&start_date=2026-07-01&end_date=2026-07-01 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO - During handling of the above exception, another exception occurred:
+[2026-07-21T16:00:00.169+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO - File "/app/weather_report.py", line 77, in <module>
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO -     data = fetch_weather(day_str, day_str)
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO -   File "/app/weather_report.py", line 37, in fetch_weather
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO -     r = requests.get(ARCHIVE_URL, params=params)
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/api.py", line 73, in get
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO -     return request("get", url, params=params, **kwargs)
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/api.py", line 59, in request
+[2026-07-21T16:00:00.170+0000] {docker.py:438} INFO -     return session.request(method=method, url=url, **kwargs)
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO -            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO -     resp = self.send(prep, **send_kwargs)
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO -     r = adapter.send(request, **kwargs)
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/adapters.py", line 517, in send
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO -     raise SSLError(e, request=request)
+[2026-07-21T16:00:00.171+0000] {docker.py:438} INFO - requests.exceptions.SSLError: HTTPSConnectionPool(host='archive-api.open-meteo.com', port=443): Max retries exceeded with url: /v1/archive?latitude=22.3193&longitude=114.1694&hourly=temperature_2m%2Crelative_humidity_2m%2Cprecipitation%2Cwind_speed_10m%2Cwind_direction_10m%2Cweather_code&timezone=Asia%2FHong_Kong&start_date=2026-07-01&end_date=2026-07-01 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+[2026-07-21T16:00:00.377+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 446, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2026-07-21T16:00:00.383+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=hk_daily_etl, task_id=ingest.weather, run_id=manual__2026-07-21T15:59:12+00:00, execution_date=20260721T155912, start_date=20260721T155919, end_date=20260721T160000
+[2026-07-21T16:00:00.392+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-07-21T16:00:00.393+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 25 for task ingest.weather (Docker container failed: {'StatusCode': 1}; 4457)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 446, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2026-07-21T16:00:00.443+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-07-21T16:00:00.463+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T16:00:00.464+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

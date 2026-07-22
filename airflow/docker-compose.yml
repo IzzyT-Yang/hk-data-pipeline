@@ -16,7 +16,6 @@ x-airflow-common: &airflow-common
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - /var/run/docker.sock:/var/run/docker.sock
-  user: "0:0"
   depends_on:
     postgres:
       condition: service_healthy
@@ -55,14 +54,15 @@ services:
     <<: *airflow-common
     command: webserver
     ports:
-      - "8080:8080"
+      # Host 8082 avoids conflict with root docker-compose Kestra on 8080.
+      - "8082:8080"
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 30s
-
+  
   airflow-scheduler:
     <<: *airflow-common
     command: scheduler

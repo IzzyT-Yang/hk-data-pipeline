@@ -1,0 +1,277 @@
+[2026-07-21T16:00:37.268+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-07-21T16:00:37.276+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: hk_daily_etl.ingest.air_quality manual__2026-07-21T16:00:26+00:00 [queued]>
+[2026-07-21T16:00:37.281+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: hk_daily_etl.ingest.air_quality manual__2026-07-21T16:00:26+00:00 [queued]>
+[2026-07-21T16:00:37.282+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2026-07-21T16:00:37.287+0000] {taskinstance.py:2889} INFO - Executing <Task(DockerOperator): ingest.air_quality> on 2026-07-21 16:00:26+00:00
+[2026-07-21T16:00:37.289+0000] {standard_task_runner.py:72} INFO - Started process 4500 to run task
+[2026-07-21T16:00:37.291+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'hk_daily_etl', 'ingest.air_quality', 'manual__2026-07-21T16:00:26+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/hk_daily_etl.py', '--cfg-path', '/tmp/tmps1e6dt1m']
+[2026-07-21T16:00:37.292+0000] {standard_task_runner.py:105} INFO - Job 28: Subtask ingest.air_quality
+[2026-07-21T16:00:37.316+0000] {task_command.py:467} INFO - Running <TaskInstance: hk_daily_etl.ingest.air_quality manual__2026-07-21T16:00:26+00:00 [running]> on host c8724559063f
+[2026-07-21T16:00:37.365+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='hk_daily_etl' AIRFLOW_CTX_TASK_ID='ingest.air_quality' AIRFLOW_CTX_EXECUTION_DATE='2026-07-21T16:00:26+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-21T16:00:26+00:00'
+[2026-07-21T16:00:37.366+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-07-21T16:00:37.396+0000] {docker.py:367} INFO - Starting docker container from image asia-east2-docker.pkg.dev/kestra-sandbox-486905/hk-pipeline/ingestion:latest
+[2026-07-21T16:00:37.791+0000] {docker.py:438} INFO - Fetching historical air quality (Open-Meteo): 2026-07-01 → 2026-07-03
+[2026-07-21T16:00:37.793+0000] {docker.py:438} INFO -   2026-07-01...
+[2026-07-21T16:00:49.772+0000] {docker.py:438} INFO - 24 hourly entries
+[2026-07-21T16:00:49.780+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:49.782+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+[2026-07-21T16:00:49.782+0000] {docker.py:438} INFO -     response = self._make_request(
+[2026-07-21T16:00:49.783+0000] {docker.py:438} INFO -         conn,
+[2026-07-21T16:00:49.783+0000] {docker.py:438} INFO -     ...<10 lines>...
+[2026-07-21T16:00:49.783+0000] {docker.py:438} INFO -         **response_kw,
+[2026-07-21T16:00:49.784+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.784+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+[2026-07-21T16:00:49.784+0000] {docker.py:438} INFO -     response = conn.getresponse()
+[2026-07-21T16:00:49.784+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+[2026-07-21T16:00:49.785+0000] {docker.py:438} INFO -     httplib_response = super().getresponse()
+[2026-07-21T16:00:49.785+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/http/client.py", line 1450, in getresponse
+[2026-07-21T16:00:49.785+0000] {docker.py:438} INFO -     response.begin()
+[2026-07-21T16:00:49.785+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~^^
+[2026-07-21T16:00:49.785+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/http/client.py", line 336, in begin
+[2026-07-21T16:00:49.786+0000] {docker.py:438} INFO -     version, status, reason = self._read_status()
+[2026-07-21T16:00:49.786+0000] {docker.py:438} INFO -                               ~~~~~~~~~~~~~~~~~^^
+[2026-07-21T16:00:49.786+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/http/client.py", line 305, in _read_status
+[2026-07-21T16:00:49.786+0000] {docker.py:438} INFO -     raise RemoteDisconnected("Remote end closed connection without"
+[2026-07-21T16:00:49.787+0000] {docker.py:438} INFO -                              " response")
+[2026-07-21T16:00:49.787+0000] {docker.py:438} INFO - http.client.RemoteDisconnected: Remote end closed connection without response
+[2026-07-21T16:00:49.787+0000] {docker.py:438} INFO - During handling of the above exception, another exception occurred:
+[2026-07-21T16:00:49.788+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:49.788+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:49.788+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.13/site-packages/requests/adapters.py", line 486, in send
+[2026-07-21T16:00:49.788+0000] {docker.py:438} INFO -     resp = conn.urlopen(
+[2026-07-21T16:00:49.789+0000] {docker.py:438} INFO -         method=request.method,
+[2026-07-21T16:00:49.789+0000] {docker.py:438} INFO -     ...<9 lines>...
+[2026-07-21T16:00:49.789+0000] {docker.py:438} INFO -         chunked=chunked,
+[2026-07-21T16:00:49.789+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.789+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 842, in urlopen
+[2026-07-21T16:00:49.790+0000] {docker.py:438} INFO -     retries = retries.increment(
+[2026-07-21T16:00:49.790+0000] {docker.py:438} INFO -         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+[2026-07-21T16:00:49.790+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.790+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/util/retry.py", line 498, in increment
+[2026-07-21T16:00:49.791+0000] {docker.py:438} INFO -     raise reraise(type(error), error, _stacktrace)
+[2026-07-21T16:00:49.791+0000] {docker.py:438} INFO -           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:49.791+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/util/util.py", line 38, in reraise
+[2026-07-21T16:00:49.792+0000] {docker.py:438} INFO -     raise value.with_traceback(tb)
+[2026-07-21T16:00:49.792+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+[2026-07-21T16:00:49.792+0000] {docker.py:438} INFO -     response = self._make_request(
+[2026-07-21T16:00:49.792+0000] {docker.py:438} INFO -         conn,
+[2026-07-21T16:00:49.792+0000] {docker.py:438} INFO -     ...<10 lines>...
+[2026-07-21T16:00:49.792+0000] {docker.py:438} INFO -         **response_kw,
+[2026-07-21T16:00:49.792+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.793+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+[2026-07-21T16:00:49.793+0000] {docker.py:438} INFO -     response = conn.getresponse()
+[2026-07-21T16:00:49.793+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+[2026-07-21T16:00:49.793+0000] {docker.py:438} INFO -     httplib_response = super().getresponse()
+[2026-07-21T16:00:49.793+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/http/client.py", line 1450, in getresponse
+[2026-07-21T16:00:49.794+0000] {docker.py:438} INFO -     response.begin()
+[2026-07-21T16:00:49.794+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~^^
+[2026-07-21T16:00:49.794+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/http/client.py", line 336, in begin
+[2026-07-21T16:00:49.794+0000] {docker.py:438} INFO -     version, status, reason = self._read_status()
+[2026-07-21T16:00:49.795+0000] {docker.py:438} INFO -                               ~~~~~~~~~~~~~~~~~^^
+[2026-07-21T16:00:49.795+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/http/client.py", line 305, in _read_status
+[2026-07-21T16:00:49.795+0000] {docker.py:438} INFO -     raise RemoteDisconnected("Remote end closed connection without"
+[2026-07-21T16:00:49.795+0000] {docker.py:438} INFO -                              " response")
+[2026-07-21T16:00:49.796+0000] {docker.py:438} INFO - urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-21T16:00:49.796+0000] {docker.py:438} INFO - During handling of the above exception, another exception occurred:
+[2026-07-21T16:00:49.796+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:49.796+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:49.797+0000] {docker.py:438} INFO - File "/usr/local/lib/python3.13/site-packages/google/auth/transport/requests.py", line 188, in __call__
+[2026-07-21T16:00:49.797+0000] {docker.py:438} INFO -     response = self.session.request(
+[2026-07-21T16:00:49.797+0000] {docker.py:438} INFO -         method, url, data=body, headers=headers, timeout=timeout, **kwargs
+[2026-07-21T16:00:49.797+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.797+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO -     resp = self.send(prep, **send_kwargs)
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO -     r = adapter.send(request, **kwargs)
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/requests/adapters.py", line 501, in send
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO -     raise ConnectionError(err, request=request)
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO - requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:49.798+0000] {docker.py:438} INFO - The above exception was the direct cause of the following exception:
+[2026-07-21T16:00:49.799+0000] {docker.py:438} INFO - 
+[2026-07-21T16:00:49.799+0000] {docker.py:438} INFO - Traceback (most recent call last):
+[2026-07-21T16:00:49.799+0000] {docker.py:438} INFO - File "/app/air_quality.py", line 79, in <module>
+[2026-07-21T16:00:49.799+0000] {docker.py:438} INFO -     gcs_path = upload_to_gcs(data, GCS_BUCKET, blob_name)
+[2026-07-21T16:00:49.799+0000] {docker.py:438} INFO -   File "/app/utils.py", line 34, in upload_to_gcs
+[2026-07-21T16:00:49.799+0000] {docker.py:438} INFO -     blob.upload_from_string(
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~~~~~^
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -         json.dumps(data, ensure_ascii=False, indent=2),
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -         content_type="application/json",
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -     ^
+[2026-07-21T16:00:49.800+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/cloud/storage/blob.py", line 3059, in upload_from_string
+[2026-07-21T16:00:49.801+0000] {docker.py:438} INFO -     self.upload_from_file(
+[2026-07-21T16:00:49.801+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~~~^
+[2026-07-21T16:00:49.801+0000] {docker.py:438} INFO -         file_obj=string_buffer,
+[2026-07-21T16:00:49.801+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:49.801+0000] {docker.py:438} INFO -     ...<11 lines>...
+[2026-07-21T16:00:49.802+0000] {docker.py:438} INFO -         retry=retry,
+[2026-07-21T16:00:49.802+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^
+[2026-07-21T16:00:49.802+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.802+0000] {docker.py:438} INFO -     ^
+[2026-07-21T16:00:49.802+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/cloud/storage/blob.py", line 2766, in upload_from_file
+[2026-07-21T16:00:49.802+0000] {docker.py:438} INFO -     self._prep_and_do_upload(
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~~~~~~^
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -         file_obj,
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -         ^^^^^^^^^
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -     ...<12 lines>...
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -         retry=retry,
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -     ^
+[2026-07-21T16:00:49.803+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/cloud/storage/blob.py", line 2607, in _prep_and_do_upload
+[2026-07-21T16:00:49.804+0000] {docker.py:438} INFO -     created_json = self._do_upload(
+[2026-07-21T16:00:49.804+0000] {docker.py:438} INFO -         client,
+[2026-07-21T16:00:49.804+0000] {docker.py:438} INFO -     ...<12 lines>...
+[2026-07-21T16:00:49.804+0000] {docker.py:438} INFO -         command=command,
+[2026-07-21T16:00:49.804+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.804+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/cloud/storage/blob.py", line 2413, in _do_upload
+[2026-07-21T16:00:49.804+0000] {docker.py:438} INFO -     response = self._do_multipart_upload(
+[2026-07-21T16:00:49.805+0000] {docker.py:438} INFO -         client,
+[2026-07-21T16:00:49.805+0000] {docker.py:438} INFO -     ...<12 lines>...
+[2026-07-21T16:00:49.805+0000] {docker.py:438} INFO -         command=command,
+[2026-07-21T16:00:49.805+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.805+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/cloud/storage/blob.py", line 1926, in _do_multipart_upload
+[2026-07-21T16:00:49.805+0000] {docker.py:438} INFO -     response = upload.transmit(
+[2026-07-21T16:00:49.805+0000] {docker.py:438} INFO -         transport, data, object_metadata, content_type, timeout=timeout
+[2026-07-21T16:00:49.806+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.806+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/resumable_media/requests/upload.py", line 152, in transmit
+[2026-07-21T16:00:49.806+0000] {docker.py:438} INFO -     return _request_helpers.wait_and_retry(
+[2026-07-21T16:00:49.806+0000] {docker.py:438} INFO -            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+[2026-07-21T16:00:49.806+0000] {docker.py:438} INFO -         retriable_request, self._get_status_code, self._retry_strategy
+[2026-07-21T16:00:49.806+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:49.806+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.807+0000] {docker.py:438} INFO -     ^
+[2026-07-21T16:00:49.807+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/resumable_media/requests/_request_helpers.py", line 155, in wait_and_retry
+[2026-07-21T16:00:49.807+0000] {docker.py:438} INFO -     response = func()
+[2026-07-21T16:00:49.807+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/resumable_media/requests/upload.py", line 144, in retriable_request
+[2026-07-21T16:00:49.807+0000] {docker.py:438} INFO -     result = transport.request(
+[2026-07-21T16:00:49.807+0000] {docker.py:438} INFO -         method, url, data=payload, headers=headers, timeout=timeout
+[2026-07-21T16:00:49.807+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.808+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/auth/transport/requests.py", line 538, in request
+[2026-07-21T16:00:49.808+0000] {docker.py:438} INFO -     self.credentials.before_request(auth_request, method, url, request_headers)
+[2026-07-21T16:00:49.808+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:49.808+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/auth/credentials.py", line 469, in before_request
+[2026-07-21T16:00:49.808+0000] {docker.py:438} INFO -     self._blocking_refresh(request)
+[2026-07-21T16:00:49.808+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/auth/credentials.py", line 203, in _blocking_refresh
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -     self.refresh(request)
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~^^^^^^^^^
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/auth/credentials.py", line 482, in refresh
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -     self._perform_refresh_token(request)
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/oauth2/service_account.py", line 460, in _perform_refresh_token
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -     access_token, expiry, _ = _client.jwt_grant(
+[2026-07-21T16:00:49.809+0000] {docker.py:438} INFO -                               ~~~~~~~~~~~~~~~~~^
+[2026-07-21T16:00:49.810+0000] {docker.py:438} INFO -         request, self._token_uri, assertion
+[2026-07-21T16:00:49.810+0000] {docker.py:438} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2026-07-21T16:00:49.810+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.810+0000] {docker.py:438} INFO -     ^
+[2026-07-21T16:00:49.810+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/oauth2/_client.py", line 307, in jwt_grant
+[2026-07-21T16:00:49.810+0000] {docker.py:438} INFO -     response_data = _token_endpoint_request(
+[2026-07-21T16:00:49.811+0000] {docker.py:438} INFO -         request,
+[2026-07-21T16:00:49.811+0000] {docker.py:438} INFO -     ...<5 lines>...
+[2026-07-21T16:00:49.811+0000] {docker.py:438} INFO -         },
+[2026-07-21T16:00:49.811+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.811+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/oauth2/_client.py", line 267, in _token_endpoint_request
+[2026-07-21T16:00:49.811+0000] {docker.py:438} INFO -     ) = _token_endpoint_request_no_throw(
+[2026-07-21T16:00:49.812+0000] {docker.py:438} INFO -         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+[2026-07-21T16:00:49.812+0000] {docker.py:438} INFO -         request,
+[2026-07-21T16:00:49.812+0000] {docker.py:438} INFO -         ^^^^^^^^
+[2026-07-21T16:00:49.812+0000] {docker.py:438} INFO -     ...<6 lines>...
+[2026-07-21T16:00:49.812+0000] {docker.py:438} INFO -         **kwargs
+[2026-07-21T16:00:49.812+0000] {docker.py:438} INFO -         ^^^^^^^^
+[2026-07-21T16:00:49.812+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO -     ^
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/oauth2/_client.py", line 196, in _token_endpoint_request_no_throw
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO -     response = request(
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO -         method="POST", url=token_uri, headers=headers_to_use, body=body, **kwargs
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO -     )
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO -   File "/usr/local/lib/python3.13/site-packages/google/auth/transport/requests.py", line 195, in __call__
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO -     raise new_exc from caught_exc
+[2026-07-21T16:00:49.813+0000] {docker.py:438} INFO - google.auth.exceptions.TransportError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-21T16:00:49.971+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 446, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2026-07-21T16:00:49.976+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=hk_daily_etl, task_id=ingest.air_quality, run_id=manual__2026-07-21T16:00:26+00:00, execution_date=20260721T160026, start_date=20260721T160037, end_date=20260721T160049
+[2026-07-21T16:00:49.988+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-07-21T16:00:49.989+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 28 for task ingest.air_quality (Docker container failed: {'StatusCode': 1}; 4500)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 513, in execute
+    return self._run_image()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 384, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/providers/docker/operators/docker.py", line 446, in _run_image_with_mounts
+    raise DockerContainerFailedException(f"Docker container failed: {result!r}", logs=log_lines)
+airflow.providers.docker.exceptions.DockerContainerFailedException: Docker container failed: {'StatusCode': 1}
+[2026-07-21T16:00:50.030+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-07-21T16:00:50.045+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-21T16:00:50.048+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
