@@ -1,6 +1,6 @@
 # HK Data Pipeline
 
-An end-to-end data engineering project that ingests Hong Kong weather and air quality data from Open-Meteo, loads it into BigQuery, transforms it with dbt, orchestrates daily runs with Kestra on GCP, and visualizes results in Looker Studio.
+An end-to-end data engineering project that ingests Hong Kong weather and air quality data from Open-Meteo, loads it into BigQuery, transforms it with dbt, orchestrates daily runs with Apache Airflow on GCP, and visualizes results in Looker Studio.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ Open-Meteo API (weather + air quality)
 | Ingestion | Python + GCS |
 | Storage | Google Cloud Storage + BigQuery |
 | Transformation | dbt (BigQuery adapter) |
-| Orchestration | Kestra (self-hosted on GCP VM) |
+| Orchestration | Apache Airflow (Docker Compose on GCP VM) |
 | Containerization | Docker + Artifact Registry |
 | Visualization | Looker Studio |
 
@@ -54,13 +54,11 @@ hk-data-pipeline/
 │   │   └── mart/           # daily aggregations + combined
 │   ├── profiles_prod.yml
 │   └── Dockerfile
-├── orchestration/
-│   ├── ingest.yml          # subflow: fetch API → GCS
-│   ├── load.yml            # subflow: GCS → BigQuery
-│   ├── transform.yml       # subflow: dbt run
-│   ├── daily_etl.yml       # main pipeline (ingest + load + transform)
-│   └── push_flows.sh       # push all flows to Kestra via API
-├── docker-compose.yml      # local Kestra for development
+├── airflow/
+│   ├── dags/
+│   │   └── hk_daily_etl.py # DAG: ingest → load → dbt (DockerOperator)
+│   ├── docker-compose.yml  # local / VM Airflow (webserver, scheduler, postgres)
+│   └── requirements.txt    # apache-airflow-providers-docker
 └── dashboard/              # Looker Studio screenshots
 ```
 
@@ -84,10 +82,10 @@ mart.mart_daily_combined                         (joined weather + air quality)
 
 ### Prerequisites
 - GCP project with BigQuery, GCS, and Artifact Registry enabled
-- Docker Desktop
+- Docker Desktop (local) or Docker Engine (VM)
 - `gcloud` CLI authenticated
 
-### 1. Local development
+### 1. Local development (scripts only)
 
 ```bash
 # install dependencies
@@ -106,38 +104,63 @@ cd ../dbt && dbt run --profiles-dir . --project-dir .
 
 ### 2. Build and push Docker images
 
+For a GCP VM (linux/amd64), build with an explicit platform if your Mac is Apple Silicon:
+
 ```bash
-docker build -t asia-east2-docker.pkg.dev/<project>/hk-pipeline/ingestion:latest ./ingestion
-docker build -t asia-east2-docker.pkg.dev/<project>/hk-pipeline/dbt:latest ./dbt
+gcloud auth configure-docker asia-east2-docker.pkg.dev
+
+docker build --platform linux/amd64 \
+  -t asia-east2-docker.pkg.dev/<project>/hk-pipeline/ingestion:latest ./ingestion
+docker build --platform linux/amd64 \
+  -t asia-east2-docker.pkg.dev/<project>/hk-pipeline/dbt:latest ./dbt
+
 docker push asia-east2-docker.pkg.dev/<project>/hk-pipeline/ingestion:latest
 docker push asia-east2-docker.pkg.dev/<project>/hk-pipeline/dbt:latest
 ```
 
-### 3. Kestra (local)
+### 3. Airflow (local)
 
 ```bash
+cd airflow
+echo "AIRFLOW_UID=$(id -u)" > .env
+docker compose up airflow-init
 docker compose up -d
-# UI at http://localhost:8080
+# UI at http://localhost:8082  (admin / admin)
 ```
 
-### 4. Deploy flows to Kestra
+### 4. Configure Airflow Variable
 
-```bash
-cd orchestration && ./push_flows.sh
-```
-
-### 5. Configure KV Store
-
-In the Kestra UI: **Namespaces → hk_data_pipeline → KV Store**
+In the Airflow UI: **Admin → Variables**
 
 | Key | Value |
 |-----|-------|
 | `GCP_SERVICE_ACCOUNT_KEY` | GCP service account JSON |
 
-### 6. Run the pipeline
+Or via CLI (from `airflow/`):
 
-- **Daily (automated)**: schedule trigger runs at 08:00 HKT
-- **Manual / backfill**: trigger `daily_pipeline` with custom `start_date` and `end_date`; toggle `run_ingest`, `run_load`, `run_transform` as needed
+```bash
+docker compose exec -T airflow-webserver \
+  airflow variables set GCP_SERVICE_ACCOUNT_KEY "$(cat ../secrets/gcp-sa-key.json)"
+```
+
+Keep service account JSON out of git (see `.gitignore` / `secrets/`).
+
+### 5. Run the pipeline
+
+- **Daily (automated)**: DAG `hk_daily_etl` schedule `0 8 * * *` (Asia/Hong_Kong)
+- **Manual / backfill**: Trigger DAG with params `start_date`, `end_date`, and toggles `run_ingest` / `run_load` / `run_transform`
+
+Tasks use `DockerOperator` to run the ingestion and dbt images from Artifact Registry (Docker socket mounted into Airflow).
+
+### 6. Deploy on a GCP VM (optional)
+
+Same `airflow/docker-compose.yml` on a VM in `asia-east2` (recommend at least `e2-small`, 30GB disk):
+
+1. Install Docker + Compose plugin on the VM
+2. `gcloud auth configure-docker asia-east2-docker.pkg.dev`
+3. Clone the repo, `cd airflow && docker compose up -d`
+4. Open firewall for TCP `8082`, then visit `http://<VM_EXTERNAL_IP>:8082`
+5. Set Variable `GCP_SERVICE_ACCOUNT_KEY` as above
 
 ## CI/CD
 

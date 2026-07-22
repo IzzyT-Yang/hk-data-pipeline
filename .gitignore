@@ -18,3 +18,7 @@ secrets/
 **/gcp-sa-key.json
 *service-account*.json
 *-00297a6f337c.json
+
+# Airflow runtime logs
+airflow/logs/
+airflow/.env
